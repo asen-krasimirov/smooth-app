@@ -1,0 +1,352 @@
+
+
+.heading {
+    margin-bottom: 10%;
+}
+
+.landing .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing .heading .text-holder,
+.landing .heading .image-holder {
+    flex-basis: 50%  ;
+}
+
+.landing .heading .text-holder {
+    padding: 20px 0 20px 300px;
+}
+
+.landing .heading .text-holder h2 {
+    font-size: 4rem;
+}
+
+.landing .heading .text-holder h2 .great-text {
+    color: #FF6600;
+    font-weight: bold;
+}
+
+.landing .heading .image-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.landing .heading .image-holder .image-inner-holder {
+    width: fit-content;
+    /* background: #404754; */
+    border-radius: 50%;
+    text-align: center;
+}
+
+.landing .heading .image-holder img {
+    border-radius: 50%;
+}
+
+.generic-section h3 {
+    margin-top: 0;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.generic-section .possibility-holder {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 90%;
+
+    margin: auto;
+}
+
+.generic-section .possibility-holder .possibility {
+    flex-basis: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 20px;
+    padding: 3% 3% 9%;
+    
+    font-size: 1.5rem;
+    text-align: center;
+
+    color: #23272E;
+    background: #fff;
+    border-radius: 30px;
+}
+
+.generic-section .possibility-holder .arrow-holder i {
+    font-size: 5rem;
+}
+
+.generic-section .possibility-holder .possibility .icon-holder {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 15px;
+    /* padding: 20px; */
+    width: 70px;
+    height: 70px;
+
+    box-shadow: 0px 3px 6px 0px #23272e;
+    border-radius: 50%;
+}
+
+.generic-section .possibility-holder .possibility .icon-holder i {
+    font-size: 2rem;
+}
+
+.generic-section .possibility-holder .possibility  h4 {
+    width: 80%;
+    margin-top: 0;
+    padding-bottom: 20px;
+
+    font-size: 2rem;
+
+    border-bottom: 2px solid #23272E;
+}
+
+.generic-section .possibility-holder .possibility  p {
+    margin: 0;
+}
+
+.about-reference {
+    padding: 8%;
+}
+
+.about-reference .main-text {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.about-reference .main-text .great-text{
+    color: #FF6600;
+}
+
+@keyframes main-btn-on-hover {
+    0% {
+        background: #FF6600;
+    }
+    25% {
+        background: #db5a03;
+    }
+    50% {
+        background: #b34902;
+    }
+}
+
+@keyframes main-btn-out-hover {
+    0% {
+        background: #b34902;
+    }
+    25% {
+        background: #db5a03;
+    }
+    50% {
+        background: #FF6600;
+    }
+}
+
+
+.btn {
+    animation: main-btn-out-hover 300ms;
+
+    padding: 10px;
+
+    font-size: 2rem;
+    text-decoration: none;
+
+    color: inherit;
+    background: #FF6600;
+    border: none;
+    border-radius: 30px;
+}
+
+.btn:hover {
+    animation: main-btn-on-hover 300ms;
+    background: #b34902;
+}
+
+.btn .scale-up {
+    font-size: 2.5rem;
+}
+
+.about-reference .btn {
+    margin-top: 5%;
+}
+
+.company-side .btn,
+.applicant-side .btn {
+    margin-top: 100px;
+}
+
+.main-footer {
+    padding: 1%;
+    padding-bottom: 3%;
+
+    font-size: 1.5rem;
+    text-align: center;
+
+    color: #59677c;
+    background: #101114;
+}
+
+@keyframes show-underline {
+    0% {width: 0}
+    25% {width: 10px}
+    50% {width: 60px}
+}
+
+.type2::after {
+    content: "";
+    display: block;
+    position: absolute;
+
+    width: 0;
+    height: 5px;
+    background: rgb(255, 255, 255);
+}
+
+.type2:hover::after {
+    animation: show-underline 1s;
+    width: 60px;
+}
+
+.heading {
+    margin-bottom: 10%;
+}
+
+.landing .heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing .heading .text-holder,
+.landing .heading .image-holder {
+    flex-basis: 50%  ;
+}
+
+.landing .heading .text-holder {
+    padding: 20px 0 20px 300px;
+}
+
+.landing .heading .text-holder h2 {
+    font-size: 4rem;
+}
+
+.landing .heading .text-holder h2 .great-text {
+    color: #FF6600;
+    font-weight: bold;
+}
+
+.landing .heading .image-holder {
+    display: flex;
+    justify-content: center;
+}
+
+.landing .heading .image-holder .image-inner-holder {
+    width: fit-content;
+    /* background: #404754; */
+    border-radius: 50%;
+    text-align: center;
+}
+
+.landing .heading .image-holder img {
+    border-radius: 50%;
+}
+
+.generic-section h3 {
+    margin-top: 0;
+    font-size: 3rem;
+    text-align: center;
+}
+
+.generic-section .possibility-holder {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    width: 90%;
+
+    margin: auto;
+}
+
+.generic-section .possibility-holder .possibility {
+    flex-basis: 30%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: 0 20px;
+    padding: 3% 3% 9%;
+    
+    font-size: 1.5rem;
+    text-align: center;
+
+    color: #23272E;
+    background: #fff;
+    border-radius: 30px;
+}
+
+.generic-section .possibility-holder .arrow-holder i {
+    font-size: 5rem;
+}
+
+.generic-section .possibility-holder .possibility .icon-holder {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-bottom: 15px;
+    width: 70px;
+    height: 70px;
+
+    box-shadow: 0px 3px 6px 0px #23272e;
+    border-radius: 50%;
+}
+
+.generic-section .possibility-holder .possibility .icon-holder i {
+    font-size: 2rem;
+}
+
+.generic-section .possibility-holder .possibility  h4 {
+    width: 80%;
+    margin-top: 0;
+    padding-bottom: 20px;
+
+    font-size: 2rem;
+
+    border-bottom: 2px solid #23272E;
+}
+
+.generic-section .possibility-holder .possibility  p {
+    margin: 0;
+}
+
+.about-reference {
+    padding: 8%;
+}
+
+.about-reference .main-text {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.about-reference .main-text .great-text{
+    color: #FF6600;
+}
+
+.about-reference .btn {
+    margin-top: 5%;
+}
+
+.company-side .btn,
+.applicant-side .btn {
+    margin-top: 100px;
+}
