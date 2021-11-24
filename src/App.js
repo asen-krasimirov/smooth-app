@@ -1,44 +1,17 @@
 import './App.css';
 
+import Header from './component/Header';
 import Landing from './component/Landing';
+import JobsBrowser from './component/JobsBrowser';
 
 function App() {
 	return (
 		<>
-			<header className="main-header">
-				<a href="##">
-					<h1>Smooth</h1>
-				</a>
-
-				<nav className="main-navigation">
-					<ul>
-						<li className="type2">
-							<a href="##">Jobs</a>
-						</li>
-
-						<li className="type2">
-							<a href="##">Applicants</a>
-						</li>
-
-						<li className="type2">
-							<a href="##">Logout</a>
-						</li>
-
-						<li className="type2">
-							<a href="##">Sign In</a>
-						</li>
-
-						<li className="type2">
-							<a href="##">Sign Up</a>
-						</li>
-
-					</ul>
-
-				</nav>
-			</header>
+			<Header />
 
 			<main className="content-container">
-				<Landing />
+				{/* <Landing /> */}
+				<JobsBrowser />
 			</main>
 
 			<button id="buttonToTop" className="btn">

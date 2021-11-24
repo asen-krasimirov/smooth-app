@@ -82,6 +82,11 @@
     font-size: 5rem;
 }
 
+.generic-section .possibility-holder .arrow-holder .down-arrow {
+    margin: 10px 0;
+    display: none;
+}
+
 .generic-section .possibility-holder .possibility .icon-holder {
     display: inline-flex;
     justify-content: center;
@@ -349,4 +354,46 @@
 .company-side .btn,
 .applicant-side .btn {
     margin-top: 100px;
+}
+
+/* responsive-css */
+
+@media all and (max-width: 600px) {
+    .landing .heading {
+        flex-direction: column;
+    }
+
+    .landing .heading .text-holder {
+        padding: 0;
+        width: 90%;
+        text-align: center;
+    }
+
+    .landing .heading .text-holder h2 {
+        font-size: 3rem;
+    }
+
+    .landing .heading .image-holder img {
+        max-width: 400px;
+    }
+
+    .btn .scale-up {
+        font-size: 2.1rem;
+    }
+
+    .possibility-holder {
+        flex-direction: column;
+    }
+    
+    .generic-section .possibility-holder .arrow-holder .right-arrow {
+        display: none;
+    }
+
+    .generic-section .possibility-holder .arrow-holder .down-arrow {
+        display: inline-block;
+    }
+
+    .main-footer {
+        padding-bottom: 10%;
+    }
 }
