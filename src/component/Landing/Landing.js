@@ -50,7 +50,7 @@ function Landing() {
                     </article>
 
                     <div className="arrow-holder">
-                        <i class="fas fa-arrow-down down-arrow"></i>
+                        <i className="fas fa-arrow-down down-arrow"></i>
                         <i className="fas fa-arrow-right right-arrow"></i>
                     </div>
 
@@ -66,7 +66,7 @@ function Landing() {
                     </article>
 
                     <div className="arrow-holder">
-                        <i class="fas fa-arrow-down down-arrow"></i>
+                        <i className="fas fa-arrow-down down-arrow"></i>
                         <i className="fas fa-arrow-right right-arrow"></i>
                     </div>
 
@@ -103,7 +103,7 @@ function Landing() {
                     </article>
 
                     <div className="arrow-holder">
-                        <i class="fas fa-arrow-down down-arrow"></i>
+                        <i className="fas fa-arrow-down down-arrow"></i>
                         <i className="fas fa-arrow-right right-arrow"></i>
                     </div>
 
@@ -119,7 +119,7 @@ function Landing() {
                     </article>
 
                     <div className="arrow-holder">
-                        <i class="fas fa-arrow-down down-arrow"></i>
+                        <i className="fas fa-arrow-down down-arrow"></i>
                         <i className="fas fa-arrow-right right-arrow"></i>
                     </div>
 

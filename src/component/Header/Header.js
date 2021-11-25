@@ -48,9 +48,9 @@ function Header() {
                             <NavLink to="/sign-in" className={status => status.isActive ? 'active' : ''}>Sign In</NavLink>
                         </li>
 
-                        {/* <li className="type2">
+                        <li className="type2">
                             <NavLink to="/sign-up" className={status => status.isActive ? 'active' : ''}>Sign Up</NavLink>
-                        </li> */}
+                        </li>
 
                     </div>
 
