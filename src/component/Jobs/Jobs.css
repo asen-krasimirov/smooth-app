@@ -90,6 +90,8 @@
 
 @media all and (max-width: 600px ) {
     .job-holder {
+        flex-direction: column;
         margin: 0;
+        border-radius: 2%;
     }
 }

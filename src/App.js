@@ -1,8 +1,10 @@
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
 
 import Header from './component/Header';
 import Landing from './component/Landing';
 import JobsBrowser from './component/JobsBrowser';
+import SignUp from './component/SignUp';
+import SignIn from './component/SignIn';
 
 function App() {
 	return (
@@ -10,8 +12,12 @@ function App() {
 			<Header />
 
 			<main className="content-container">
-				{/* <Landing /> */}
-				<JobsBrowser />
+				<Routes>
+					<Route path="/" element={<Landing />} />
+					<Route path="/jobs" element={<JobsBrowser />} />
+					<Route path="/sign-up" element={<SignUp />} />
+					<Route path="/sign-in" element={<SignIn />} />
+				</Routes>
 			</main>
 
 			<button id="buttonToTop" className="btn">
