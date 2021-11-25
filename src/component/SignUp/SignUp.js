@@ -1,10 +1,11 @@
+import { Link } from 'react-router-dom';
 import './SignUp.css';
 
 function SignUp() {
     return (
         <div className="sign-up">
             <section className="generic-section sign-up-section">
-                <h3>Sign Up</h3>
+                <h3 className="sign-up-title">Sign Up</h3>
 
                 <form className="sign-up-form">
 
@@ -36,6 +37,10 @@ function SignUp() {
                             <label htmlFor="applicant">Applicant</label>
                         </div>
                     </div>
+
+                    <p className="redirect-link">
+                        If you already signed-up, you can sign in <Link to="/sign-in" className="link">here</Link>.
+                    </p>
 
                     <button className="btn">Submit</button>
                 </form>

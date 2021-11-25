@@ -49,3 +49,27 @@
 .account-type label.selected {
     color: #FF6600;
 }
+
+.redirect-link {
+    text-align: center;
+}
+
+.redirect-link .link {
+    color: #FF6600;
+}
+
+.sign-up-title {
+    margin-bottom: 10px;
+}
+
+/* responsive-css */
+
+@media all and (max-width: 600px) {
+    .sign-in-section .sign-in-form .input-holder {
+        flex-direction: column;
+    }
+
+    .sign-in-section .sign-in-form input {
+        text-align: center;
+    }
+}

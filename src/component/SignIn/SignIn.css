@@ -6,7 +6,6 @@
 .sign-in-section .sign-in-form {
     display: flex;
     flex-direction: column;
-    /* align-items: flex-start; */
 }
 .sign-in-section .sign-in-form .input-holder {
     display: flex;
@@ -23,8 +22,6 @@
 .sign-in-section .sign-in-form input {
     flex-basis: 70%;
     width: 95%;
-
-    /* flex-grow: 1; */
 }
 
 .sign-in-section .sign-in-form label {
@@ -38,4 +35,28 @@
 .account-type .account-type-input {
     display: flex;
     align-items: center;
+}
+
+.redirect-link {
+    text-align: center;
+}
+
+.redirect-link .link {
+    color: #FF6600;
+}
+
+.sign-in-title {
+    margin-bottom: 10px;
+}
+
+/* responsive-css */
+
+@media all and (max-width: 600px) {
+    .sign-up-section .sign-up-form .input-holder {
+        flex-direction: column;
+    }
+
+    .sign-up-section .sign-up-form input {
+        text-align: center;
+    }
 }
