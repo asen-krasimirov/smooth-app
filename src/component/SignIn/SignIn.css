@@ -1,0 +1,41 @@
+.sign-in-section {
+    padding: 0;
+    border: none;
+}
+
+.sign-in-section .sign-in-form {
+    display: flex;
+    flex-direction: column;
+    /* align-items: flex-start; */
+}
+.sign-in-section .sign-in-form .input-holder {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.sign-in-section .sign-in-form input, 
+.sign-in-section .sign-in-form label {
+    flex-basis: 50%;
+    font-size: 2.3rem;
+}
+
+.sign-in-section .sign-in-form input {
+    flex-basis: 70%;
+    width: 95%;
+
+    /* flex-grow: 1; */
+}
+
+.sign-in-section .sign-in-form label {
+    flex-basis: 30%;
+}
+
+.sign-in-section .sign-in-form .btn {
+    margin-top: 20px;
+}
+
+.account-type .account-type-input {
+    display: flex;
+    align-items: center;
+}
