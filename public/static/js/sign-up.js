@@ -6,7 +6,9 @@ let labelMap = {
 };
 
 // default selected
-let curSelected = labelMap['business'];
+// let curSelected = labelMap['business'];
+let curSelectedValue = document.querySelector('input:checked').value;
+let curSelected = labelMap[curSelectedValue];
 if (curSelected) { curSelected.classList.toggle('selected'); };
 
 if (target) {
