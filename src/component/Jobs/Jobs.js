@@ -9,6 +9,8 @@ function Jobs({
         <section className="generic-section job-holder">
             
             <JobCard />
+            <JobCard />
+            <JobCard />
 
         </section>
     );

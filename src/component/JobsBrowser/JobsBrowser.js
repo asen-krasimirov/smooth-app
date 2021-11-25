@@ -1,3 +1,4 @@
+import './JobsBrowser.css';
 import Jobs from '../Jobs';
 
 function JobsBrowser() {
@@ -10,7 +11,7 @@ function JobsBrowser() {
                 <p className="sub-title">Here you can see all available jobs and see the details for them!</p>
                 <form className="search-form">
                     <input type="text" placeholder="Job Title" />
-                    <button class="btn">Search</button>
+                    <button className="btn">Search</button>
                 </form>
             </section>
 
