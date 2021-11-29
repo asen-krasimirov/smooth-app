@@ -1,10 +1,11 @@
 import { Routes, Route } from 'react-router-dom';
 
-import Header from './component/Header';
-import Landing from './component/Landing';
-import JobsBrowser from './component/JobsBrowser';
-import SignUp from './component/SignUp';
-import SignIn from './component/SignIn';
+import Header from './components/Header';
+import Landing from './components/Landing';
+import JobsBrowser from './components/JobsBrowser';
+import SignUp from './components/SignUp';
+import SignIn from './components/SignIn';
+import BusinessProfileManager from './components/BusinessProfileManager';
 
 function App() {
 	return (
@@ -17,6 +18,7 @@ function App() {
 					<Route path="/jobs" element={<JobsBrowser />} />
 					<Route path="/sign-up" element={<SignUp />} />
 					<Route path="/sign-in" element={<SignIn />} />
+					<Route path="/business-profile-manage" element={<BusinessProfileManager />} />
 				</Routes>
 			</main>
 

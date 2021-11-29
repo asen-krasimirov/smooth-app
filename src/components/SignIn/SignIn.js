@@ -26,7 +26,7 @@ function SignIn() {
                 }
                 else {
                     console.log(responseData);
-                    // navigation('/');
+                    navigation('/');
                 }
 
             });

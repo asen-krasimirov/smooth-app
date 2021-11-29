@@ -43,7 +43,8 @@ function SignUp() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
 
                 } else {
-                    navigation('/');
+                    // save user in context api
+                    navigation('/business-profile-manage');
                 };
 
             });
