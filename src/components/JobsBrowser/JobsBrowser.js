@@ -1,8 +1,15 @@
 import './JobsBrowser.css';
 import Jobs from '../Jobs';
 
+import * as jobServices from '../../services/jobServices';
+
+import useFetch from '../../hooks/useFetch';
+
 function JobsBrowser() {
-    const jobs = [{}];
+    // const jobs = [{}];
+    const { state: jobsInfo } = useFetch(jobServices.getAll, []);
+
+    console.log(jobsInfo);
 
     return (
         <div className="jobs">
@@ -15,7 +22,7 @@ function JobsBrowser() {
                 </form>
             </section>
 
-            <Jobs jobs={jobs}/>
+            <Jobs jobs={jobsInfo.jobs} profiles={jobsInfo.profiles}/>
         </div>
     );
 }

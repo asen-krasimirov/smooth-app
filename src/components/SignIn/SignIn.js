@@ -1,6 +1,9 @@
 /* eslint-disable curly */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+import AuthContext from '../../contexts/AuthContext';
+
 import './SignIn.css';
 
 import * as userServices from '../../services/userServices';
@@ -8,6 +11,7 @@ import * as userServices from '../../services/userServices';
 function SignIn() {
     const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
     const navigation = useNavigate();
+    const { changeUserInfo } = useContext(AuthContext);
 
     const handleSignInForm = e => {
         e.preventDefault();
@@ -25,8 +29,9 @@ function SignIn() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 }
                 else {
-                    console.log(responseData);
-                    navigation('/');
+                    userServices.authenticateSession(responseData);
+                    changeUserInfo(responseData);
+                    navigation('/');  // TODO: Redirect to profile page
                 }
 
             });

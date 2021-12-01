@@ -3,7 +3,8 @@ import './Jobs.css';
 import JobCard from './JobCard';
 
 function Jobs({
-    jobs
+    jobs,
+    profiles
 }) {
     return (
         <section className="generic-section job-holder">

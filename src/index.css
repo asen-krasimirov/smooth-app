@@ -180,6 +180,11 @@ body {
     background: #101114;
 }
 
+.error-list {
+    font-size: 1.5rem;
+    border-bottom: 1px solid red;
+}
+
 /* responsive-css */
 
 @media all and (max-width: 600px) {

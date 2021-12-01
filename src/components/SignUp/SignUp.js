@@ -1,6 +1,9 @@
 /* eslint-disable curly */
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+
+import AuthContext from '../../contexts/AuthContext';
+
 import './SignUp.css';
 
 import * as userServices from '../../services/userServices';
@@ -8,6 +11,7 @@ import * as userServices from '../../services/userServices';
 function SignUp() {
     const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
     const navigation = useNavigate();
+    const { changeUserInfo } = useContext(AuthContext);
 
     const handleSignUpForm = e => {
         e.preventDefault();
@@ -43,8 +47,10 @@ function SignUp() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
 
                 } else {
+                    userServices.authenticateSession(responseData);
                     // save user in context api
-                    navigation('/business-profile-manage');
+                    changeUserInfo(responseData);
+                    navigation('/business-profile-manage/' + responseData['user'].id);
                 };
 
             });
