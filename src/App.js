@@ -12,10 +12,15 @@ import SignIn from './components/SignIn';
 import BusinessProfileManager from './components/BusinessProfileManager';
 
 function App() {
-	const [userInfo, updateUserInfo] = useState({});
+	const initialUseData = {
+		user_id: null,
+		user_is_business: null,
+		AUTH_TOKEN: null
+	};
+
+	const [userInfo, updateUserInfo] = useState(initialUseData);
 
 	const changeUserInfo = (data) => {
-		// console.log(user, token);
 		updateUserInfo(data);
 	};
 
@@ -23,9 +28,6 @@ function App() {
 		let user_id = sessionStorage.getItem('user_id');
 		let user_is_business = sessionStorage.getItem('user_is_business');
 		let token = sessionStorage.getItem('AUTH_TOKEN');
-
-		// console.log(user);
-		// console.log(token);
 
 		changeUserInfo({
 			user_id,

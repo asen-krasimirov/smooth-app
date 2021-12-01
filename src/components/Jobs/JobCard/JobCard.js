@@ -1,16 +1,23 @@
-function JobCard() {
+function JobCard({
+    jobInfo,
+    profileInfo
+}) {
+
+    // console.log(jobInfo);
+    // console.log(profileInfo);
+
     return (
         <article className="job-card">
             <div className="image-holder">
-                <img className="company-image" src="./static/images/default-company-logo.jpg" alt="company-logo" />
+                <img className="company-image" src={profileInfo.icon_image ? profileInfo.icon_image : './static/images/default-company-logo.jpg'} alt="company-logo" />
             </div>
 
             <div className="job-title">
                 <h4 className="title">
-                    er adipisccommodo ligula eget dolor. Aenean m
+                    {jobInfo.title}
                 </h4>
                 <p className="offered-by">
-                    offered by <a href="##">Qnko Inc.</a>
+                    offered by <a href="##">{profileInfo.name}</a>
                 </p>
             </div>
 

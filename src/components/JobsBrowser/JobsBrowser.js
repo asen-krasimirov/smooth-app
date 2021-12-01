@@ -1,3 +1,4 @@
+/* eslint-disable curly */
 import './JobsBrowser.css';
 import Jobs from '../Jobs';
 
@@ -7,9 +8,23 @@ import useFetch from '../../hooks/useFetch';
 
 function JobsBrowser() {
     // const jobs = [{}];
-    const { state: jobsInfo } = useFetch(jobServices.getAll, []);
+    const { state: jobsInfo } = useFetch(jobServices.getAll, {});
 
-    console.log(jobsInfo);
+    const mappedJobsWithProfiles = () => {
+        if (!jobsInfo.hasOwnProperty('jobs')) return [];
+        
+        const jobs = [];
+
+        jobsInfo.jobs.forEach(job => {
+            const profile = jobsInfo.profiles.find(profile => profile.id === job.owner_id);
+            jobs.push({job, profile}); 
+        });
+
+        return jobs;
+    };
+
+    const temp = mappedJobsWithProfiles();
+    // console.log(temp);
 
     return (
         <div className="jobs">
@@ -22,7 +37,7 @@ function JobsBrowser() {
                 </form>
             </section>
 
-            <Jobs jobs={jobsInfo.jobs} profiles={jobsInfo.profiles}/>
+            <Jobs jobsInfo={temp}/>
         </div>
     );
 }
