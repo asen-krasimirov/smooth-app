@@ -1,5 +1,5 @@
 /* eslint-disable no-negated-in-lhs */
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
 import AuthContext from './contexts/AuthContext';
@@ -7,47 +7,60 @@ import AuthContext from './contexts/AuthContext';
 import Header from './components/Header';
 import Landing from './components/Landing';
 import JobsBrowser from './components/JobsBrowser';
+import JobDetails from './components/JobDetails';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import BusinessProfileManager from './components/BusinessProfileManager';
+import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
 	const initialUseData = {
 		user_id: null,
 		user_is_business: null,
-		AUTH_TOKEN: null
+		// AUTH_TOKEN: null
 	};
 
-	const [userInfo, updateUserInfo] = useState(initialUseData);
+	const [userInfo, updateUserInfo] = useLocalStorage('user', initialUseData);
+	const [authToken, updateAuthToken] = useLocalStorage('authToken', '');
 
 	const changeUserInfo = (data) => {
-		updateUserInfo(data);
+		console.log(data);
+		updateUserInfo(data.user);
+		updateAuthToken(data.token);
 	};
 
-	if (sessionStorage.getItem('AUTH_TOKEN') && !userInfo.hasOwnProperty('user_id')) {
-		let user_id = sessionStorage.getItem('user_id');
-		let user_is_business = sessionStorage.getItem('user_is_business');
-		let token = sessionStorage.getItem('AUTH_TOKEN');
+	// if (sessionStorage.getItem('AUTH_TOKEN') && !userInfo.hasOwnProperty('user_id')) {
+	// 	let user_id = sessionStorage.getItem('user_id');
+	// 	let user_is_business = sessionStorage.getItem('user_is_business');
+	// 	let token = sessionStorage.getItem('AUTH_TOKEN');
 
-		changeUserInfo({
-			user_id,
-			user_is_business,
-			token
-		});
-	}
+	// 	changeUserInfo({
+	// 		user_id,
+	// 		user_is_business,
+	// 		token
+	// 	});
+	// }
+
+	console.log(userInfo);
 
 	return (
-		<AuthContext.Provider value={{ userInfo, changeUserInfo }}>
+		<AuthContext.Provider value={{ userInfo, changeUserInfo, authToken }}>
 			<>
-				<Header />
+				<Header userInfo={userInfo} />
 
 				<main className="content-container">
 					<Routes>
 						<Route path="/" element={<Landing />} />
+						
 						<Route path="/jobs" element={<JobsBrowser />} />
+						<Route path="/jobs/:id" element={<JobDetails />} />
+
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-in" element={<SignIn />} />
+						<Route path="/logout" element={<SignIn />} />
+
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
+						
 					</Routes>
 				</main>
 

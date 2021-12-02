@@ -1,7 +1,7 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-import AuthContext from '../../contexts/AuthContext';
+// import AuthContext from '../../contexts/AuthContext';
 
 import './BusinessProfileManager.css';
 
@@ -11,7 +11,7 @@ function BusinessProfileManager() {
     const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
     const [profileData, updateProfileData] = useState({});
 
-    const { userInfo } = useContext(AuthContext);
+    // const { userInfo } = useContext(AuthContext);
 
     const { profile_id } = useParams();
     const navigation = useNavigate();

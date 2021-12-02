@@ -29,7 +29,7 @@ function SignIn() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 }
                 else {
-                    userServices.authenticateSession(responseData);
+                    // userServices.authenticateSession(responseData);
                     changeUserInfo(responseData);
                     navigation('/');  // TODO: Redirect to profile page
                 }

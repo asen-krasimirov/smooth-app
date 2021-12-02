@@ -1,3 +1,5 @@
+import { makeRequest } from './services';
+
 // const HOST = 'https://smooth-app-api.herokuapp.com';
 const HOST = 'http://127.0.0.1:8000';
 
@@ -13,4 +15,9 @@ export const getAll = () => {
             // console.log(response);
             return response.json();
         });
+};
+
+export const getOne = (id) => {
+    let url = pathMap['jobs'] + '/' + id;
+    return makeRequest(url, 'POST');
 };

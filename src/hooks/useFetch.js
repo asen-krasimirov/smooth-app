@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 
 
-const useFetch = (fetchFunc, defaultValue) => {
+const useFetch = (fetchFunc, defaultValue, funcParams) => {
     const [state, updateState] = useState(defaultValue);
 
     useEffect(() => {
 
-        fetchFunc()
+        fetchFunc(funcParams)
             .then(data => {
                 updateState(data);
             })
@@ -14,7 +14,7 @@ const useFetch = (fetchFunc, defaultValue) => {
                 updateState(error);
             });
 
-    }, [fetchFunc]);
+    }, [fetchFunc, funcParams]);
 
     return { state };
 };

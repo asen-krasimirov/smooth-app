@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 function JobCard({
     jobInfo,
     profileInfo
@@ -30,7 +32,7 @@ function JobCard({
                 </p> */}
             </div>
 
-            <a href="##" className="btn">Details</a>
+            <Link to={'/jobs/' + jobInfo.id} className="btn">Details</Link>
 
         </article>
     );

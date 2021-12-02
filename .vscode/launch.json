@@ -9,7 +9,7 @@
             "request": "launch",
             "name": "Smooth App Debuger",
             "url": "http://localhost:3000",
-            "webRoot": "${workspaceFolder}"
+            "webRoot": "${workspaceFolder}/src"
         }
     ]
 }

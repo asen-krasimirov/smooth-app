@@ -9,9 +9,9 @@ const pathMap = {
 const addTokenToUrl = (url) => url + '/?AUTH_TOKEN=' + sessionStorage.getItem('AUTH_TOKEN');
 
 export const authenticateSession = (response) => {
-    sessionStorage.setItem('user_id', response.user.id);
-    sessionStorage.setItem('user_is_business', response.user.is_business);
-    sessionStorage.setItem('AUTH_TOKEN', response.token);
+    // sessionStorage.setItem('user_id', response.user.id);
+    // sessionStorage.setItem('user_is_business', response.user.is_business);
+    // sessionStorage.setItem('AUTH_TOKEN', response.token);
 };
 
 export const register = (body) => {
