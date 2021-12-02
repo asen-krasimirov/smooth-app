@@ -1,3 +1,5 @@
+import { makeRequest } from './services';
+
 // const HOST = 'https://smooth-app-api.herokuapp.com';
 const HOST = 'http://127.0.0.1:8000';
 
@@ -6,7 +8,7 @@ const pathMap = {
     'profile': HOST + '/auth/profile-details',
 };
 
-const addTokenToUrl = (url) => url + '/?AUTH_TOKEN=' + sessionStorage.getItem('AUTH_TOKEN');
+// const addTokenToUrl = (url) => url + '/?AUTH_TOKEN=' + JSON.parse(localStorage.getItem('authToken'));
 
 export const authenticateSession = (response) => {
     // sessionStorage.setItem('user_id', response.user.id);
@@ -16,47 +18,30 @@ export const authenticateSession = (response) => {
 
 export const register = (body) => {
     let url = pathMap['auth'] + '/register/';
+    const headers = { 'Content-Type': 'application/json' };
 
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    })
-        .then(response => response.json());
+    return makeRequest(url, 'POST', headers, body);
 };
 
 export const login = (body) => {
     let url = pathMap['auth'] + '/login/';
+    const headers = { 'Content-Type': 'application/json' };
 
-    return fetch(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    })
-        .then(response => response.json());
+    return makeRequest(url, 'POST', headers, body);
 };
 
 export const getProfileDetails = (profile_id) => {
     let url = pathMap['profile'] + '/' + profile_id;
 
-    return fetch(url)
-        .then(response => response.json());
+    // return fetch(url)
+    //     .then(response => response.json());
+    return makeRequest(url, 'GET');
 };
 
 export const updateProfileDetails = (profile_id, body) => {
     let url = pathMap['profile'] + '/' + profile_id;
-    url = addTokenToUrl(url);
+    // url = addTokenToUrl(url);
+    const headers = { 'Content-Type': 'application/json' };
 
-    return fetch(url, {
-        method: 'PUT',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(body)
-    })
-        .then(response => response.json());
+    return makeRequest(url, 'PUT', headers, body, true);
 };

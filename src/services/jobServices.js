@@ -10,11 +10,7 @@ const pathMap = {
 export const getAll = () => {
     let url = pathMap['jobs'];
 
-    return fetch(url)
-        .then(response => {
-            // console.log(response);
-            return response.json();
-        });
+    return makeRequest(url, 'GET');
 };
 
 export const getOne = (id) => {

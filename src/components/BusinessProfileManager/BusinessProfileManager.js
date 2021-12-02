@@ -35,15 +35,19 @@ function BusinessProfileManager() {
 
         userServices.updateProfileDetails(profile_id, body)
             .then(responseData => {
-                console.log(responseData);
                 if (responseData['error_message']) {
-                    const newErrorMessages = [];
+                    let newErrorMessages = [];
 
-                    Object.values(responseData).forEach(
-                        messages => messages.forEach(
-                            message => newErrorMessages.push(message)
-                        )
-                    );
+                    try {
+                        Object.values(responseData).forEach(
+                                messages => messages.forEach(
+                                    message => newErrorMessages.push(message)
+                                )
+                        );
+                    } catch(error) {
+                        // console.error(error);
+                        newErrorMessages = Object.values(responseData);
+                    }
 
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 } else {

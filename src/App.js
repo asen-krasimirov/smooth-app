@@ -48,7 +48,7 @@ function App() {
 	// 	});
 	// }
 
-	console.log(userInfo);
+	// console.log(userInfo);
 
 	return (
 		<AuthContext.Provider value={{ userInfo, changeUserInfo, clearUserInfo, authToken }}>
