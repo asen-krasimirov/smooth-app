@@ -11,6 +11,8 @@ import JobDetails from './components/JobDetails';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import BusinessProfileManager from './components/BusinessProfileManager';
+import Logout from './components/Logout';
+
 import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
@@ -24,9 +26,14 @@ function App() {
 	const [authToken, updateAuthToken] = useLocalStorage('authToken', '');
 
 	const changeUserInfo = (data) => {
-		console.log(data);
+		// console.log(data);
 		updateUserInfo(data.user);
 		updateAuthToken(data.token);
+	};
+
+	const clearUserInfo = () => {
+		updateUserInfo(initialUseData);
+		updateAuthToken('');
 	};
 
 	// if (sessionStorage.getItem('AUTH_TOKEN') && !userInfo.hasOwnProperty('user_id')) {
@@ -44,7 +51,7 @@ function App() {
 	console.log(userInfo);
 
 	return (
-		<AuthContext.Provider value={{ userInfo, changeUserInfo, authToken }}>
+		<AuthContext.Provider value={{ userInfo, changeUserInfo, clearUserInfo, authToken }}>
 			<>
 				<Header userInfo={userInfo} />
 
@@ -57,7 +64,7 @@ function App() {
 
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-in" element={<SignIn />} />
-						<Route path="/logout" element={<SignIn />} />
+						<Route path="/logout" element={<Logout />} />
 
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
 						
