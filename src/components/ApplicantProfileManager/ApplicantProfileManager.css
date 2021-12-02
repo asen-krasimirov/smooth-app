@@ -1,0 +1,41 @@
+.applicant-profile-manage-section {
+    padding: 0;
+    border: none;
+}
+
+.applicant-profile-manage-section .applicant-profile-manage-form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.applicant-profile-manage-section .applicant-profile-manage-form .input-holder {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.applicant-profile-manage-section .applicant-profile-manage-form input, 
+/* .applicant-profile-manage-section .applicant-profile-manage-form textarea,  */
+.applicant-profile-manage-section .applicant-profile-manage-form label {
+    flex-basis: 50%;
+    font-size: 2.3rem;
+}
+
+.applicant-profile-manage-section .applicant-profile-manage-form textarea {
+    height: 150px;
+    flex-basis: 60%;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+}
+
+.applicant-profile-manage-section .applicant-profile-manage-form input {
+    flex-basis: 60%;
+}
+
+.applicant-profile-manage-section .applicant-profile-manage-form label {
+    flex-basis: 40%;
+}
+
+.applicant-profile-manage-section .applicant-profile-manage-form .btn {
+    margin-top: 20px;
+}
