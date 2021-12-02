@@ -47,10 +47,14 @@ function SignUp() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
 
                 } else {
-                    // userServices.authenticateSession(responseData);
                     // save user in context api
                     changeUserInfo(responseData);
-                    navigation('/business-profile-manage/' + responseData['user'].id);
+
+                    let redirectUrl = responseData.user.is_business
+                        ? '/business-profile-manage/'
+                        : '/applicant-profile-manage/';
+
+                    navigation(redirectUrl + responseData['user'].id);
                 };
 
             });

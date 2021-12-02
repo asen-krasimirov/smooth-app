@@ -33,14 +33,11 @@ export const login = (body) => {
 export const getProfileDetails = (profile_id) => {
     let url = pathMap['profile'] + '/' + profile_id;
 
-    // return fetch(url)
-    //     .then(response => response.json());
     return makeRequest(url, 'GET');
 };
 
 export const updateProfileDetails = (profile_id, body) => {
     let url = pathMap['profile'] + '/' + profile_id;
-    // url = addTokenToUrl(url);
     const headers = { 'Content-Type': 'application/json' };
 
     return makeRequest(url, 'PUT', headers, body, true);

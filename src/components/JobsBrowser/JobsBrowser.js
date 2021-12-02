@@ -7,7 +7,6 @@ import * as jobServices from '../../services/jobServices';
 import useFetch from '../../hooks/useFetch';
 
 function JobsBrowser() {
-    // const jobs = [{}];
     const { state: jobsInfo } = useFetch(jobServices.getAll, {});
 
     const mappedJobsWithProfiles = () => {
@@ -23,9 +22,6 @@ function JobsBrowser() {
         return jobs;
     };
 
-    const temp = mappedJobsWithProfiles();
-    // console.log(temp);
-
     return (
         <div className="jobs">
             <section className="jobs-heading">
@@ -37,7 +33,7 @@ function JobsBrowser() {
                 </form>
             </section>
 
-            <Jobs jobsInfo={temp}/>
+            <Jobs jobsInfo={mappedJobsWithProfiles()}/>
         </div>
     );
 }

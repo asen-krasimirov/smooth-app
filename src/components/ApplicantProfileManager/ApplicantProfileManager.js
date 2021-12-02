@@ -27,7 +27,6 @@ function ApplicantProfileManager() {
 
         userServices.updateProfileDetails(profile_id, body)
             .then(responseData => {
-                console.log(responseData);
                 if (responseData['error_message']) {
                     let newErrorMessages = [];
 
