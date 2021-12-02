@@ -10,8 +10,10 @@ import JobsBrowser from './components/JobsBrowser';
 import JobDetails from './components/JobDetails';
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
-import BusinessProfileManager from './components/BusinessProfileManager';
 import Logout from './components/Logout';
+
+import BusinessProfileManager from './components/BusinessProfileManager';
+import ApplicantProfileManager from './components/ApplicantProfileManager';
 
 import useLocalStorage from './hooks/useLocalStorage';
 
@@ -67,6 +69,7 @@ function App() {
 						<Route path="/logout" element={<Logout />} />
 
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
+						<Route path="/applicant-profile-manage/:profile_id" element={<ApplicantProfileManager />} />
 						
 					</Routes>
 				</main>

@@ -1,32 +1,24 @@
+import './BusinessProfileManager.css';
+
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
-// import AuthContext from '../../contexts/AuthContext';
-
-import './BusinessProfileManager.css';
+import useFetch from '../../hooks/useFetch';
 
 import * as userServices from '../../services/userServices';
 
 function BusinessProfileManager() {
-    const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
-    const [profileData, updateProfileData] = useState({});
-
-    // const { userInfo } = useContext(AuthContext);
-
     const { profile_id } = useParams();
     const navigation = useNavigate();
+    const { state: profileData } = useFetch(userServices.getProfileDetails, {}, profile_id);
 
-    useEffect(() => {
-        userServices.getProfileDetails(profile_id)
-            .then(data => {
-                updateProfileData(data);
-            });
-    }, [profile_id]);
+    const initialValidData = { isValid: true, errorMessages: [] };
+    const [isFormValid, updateIsFormValid] = useState(initialValidData);
 
     const handleBusinessProfileManageForm = (e) => {
         e.preventDefault();
 
-        updateIsFormValid({ isValid: true, errorMessages: [] });
+        updateIsFormValid(initialValidData);
 
         const formData = new FormData(e.target);
         let body = Object.fromEntries(formData);
