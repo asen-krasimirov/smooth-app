@@ -24,12 +24,19 @@ function SignIn() {
         userServices.login(body)
             .then(responseData => {
                 if (!responseData['user']) {
-                    const newErrorMessages = [responseData['error_message'][0]];
+                    const newErrorMessages = [];
+
+                    try {
+                        newErrorMessages.push(responseData['error_message'][0]);
+                        
+                    } catch(error) {
+                        newErrorMessages.push(Object.values(responseData));
+
+                    }
 
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 }
                 else {
-                    // userServices.authenticateSession(responseData);
                     changeUserInfo(responseData);
                     navigation('/');  // TODO: Redirect to profile page
                 }

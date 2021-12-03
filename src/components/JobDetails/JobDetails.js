@@ -7,16 +7,14 @@ import useFetch from '../../hooks/useFetch';
 
 import AuthContext from '../../contexts/AuthContext';
 
-import * as jobServices from '../../services/jobServices';
+// import * as jobServices from '../../services/jobServices';
 
 import './JobDetails.css';
 
 function JobDetails() {
     const { id } = useParams();
-    const { state: jobInfo } = useFetch(jobServices.getOne, {}, id);
+    const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
     const { userInfo } = useContext(AuthContext);
-    console.log(userInfo);
-    // console.log(jobInfo);
     const { job, profile } = jobInfo;
     
     const managementBtns = (

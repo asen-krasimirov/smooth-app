@@ -1,6 +1,6 @@
 import './BusinessProfileManager.css';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
@@ -10,7 +10,7 @@ import * as userServices from '../../services/userServices';
 function BusinessProfileManager() {
     const { profile_id } = useParams();
     const navigation = useNavigate();
-    const { state: profileData } = useFetch(userServices.getProfileDetails, {}, profile_id);
+    const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);

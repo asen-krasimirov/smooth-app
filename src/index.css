@@ -32,7 +32,7 @@ body {
 .business-profile-manage,
 .applicant-profile,
 .applicant-profile-manage,
-.job-create,
+.job-manager,
 .applied-jobs,
 .logout {
     display: flex;

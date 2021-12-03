@@ -1,10 +1,11 @@
 /* eslint-disable curly */
+
+import './SignUp.css';
+
 import { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 import AuthContext from '../../contexts/AuthContext';
-
-import './SignUp.css';
 
 import * as userServices from '../../services/userServices';
 
@@ -112,13 +113,13 @@ function SignUp() {
                     <div className="input-holder account-type">
                         <p className="label-text">Account Type:</p>
 
-                        <div className="account-type-input">
-                            <input type="radio" id="business" name="accountType" value="business" defaultChecked />
+                        <div className="account-type-input" >
+                            <input type="radio" id="business" name="accountType" defaultValue="business" defaultChecked />
                             <label htmlFor="business">Business</label>
                         </div>
 
                         <div className="account-type-input">
-                            <input type="radio" id="applicant" name="accountType" value="applicant" />
+                            <input type="radio" id="applicant" name="accountType" defaultValue="applicant" />
                             <label htmlFor="applicant">Applicant</label>
                         </div>
                     </div>

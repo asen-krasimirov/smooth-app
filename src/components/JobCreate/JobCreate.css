@@ -1,0 +1,46 @@
+.job-manager-section {
+    padding: 0;
+    border: none;
+}
+
+.job-manager-section .job-manager-form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+.job-manager-section .job-manager-form .input-holder {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+}
+
+.job-manager-section .job-manager-form input, 
+.job-manager-section .job-manager-form label {
+    flex-basis: 50%;
+    font-size: 2.3rem;
+}
+
+.job-manager-section .job-manager-form textarea {
+    height: 500px;
+    flex-basis: 60%;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+}
+
+.job-manager-section .job-manager-form select {
+    flex-basis: 60%;
+    padding: 5px 10px;
+    font-size: 1.5rem;
+}
+
+.job-manager-section .job-manager-form input {
+    flex-basis: 60%;
+}
+
+.job-manager-section .job-manager-form label {
+    flex-basis: 40%;
+}
+
+.job-manager-section .job-manager-form .btn {
+    margin-top: 20px;
+}

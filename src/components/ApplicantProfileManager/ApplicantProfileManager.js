@@ -10,7 +10,7 @@ import * as userServices from '../../services/userServices';
 function ApplicantProfileManager() {
     const { profile_id } = useParams();
     const navigation = useNavigate();
-    const { state: profileData } = useFetch(userServices.getProfileDetails, {}, profile_id);
+    const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
@@ -37,7 +37,6 @@ function ApplicantProfileManager() {
                                 )
                         );
                     } catch(error) {
-                        // console.error(error);
                         newErrorMessages = Object.values(responseData);
                     }
 

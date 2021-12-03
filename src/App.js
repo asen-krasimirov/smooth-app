@@ -8,6 +8,8 @@ import Header from './components/Header';
 import Landing from './components/Landing';
 import JobsBrowser from './components/JobsBrowser';
 import JobDetails from './components/JobDetails';
+import JobCreate from './components/JobCreate';
+
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Logout from './components/Logout';
@@ -28,7 +30,6 @@ function App() {
 	const [authToken, updateAuthToken] = useLocalStorage('authToken', '');
 
 	const changeUserInfo = (data) => {
-		// console.log(data);
 		updateUserInfo(data.user);
 		updateAuthToken(data.token);
 	};
@@ -37,20 +38,6 @@ function App() {
 		updateUserInfo(initialUseData);
 		updateAuthToken('');
 	};
-
-	// if (sessionStorage.getItem('AUTH_TOKEN') && !userInfo.hasOwnProperty('user_id')) {
-	// 	let user_id = sessionStorage.getItem('user_id');
-	// 	let user_is_business = sessionStorage.getItem('user_is_business');
-	// 	let token = sessionStorage.getItem('AUTH_TOKEN');
-
-	// 	changeUserInfo({
-	// 		user_id,
-	// 		user_is_business,
-	// 		token
-	// 	});
-	// }
-
-	// console.log(userInfo);
 
 	return (
 		<AuthContext.Provider value={{ userInfo, changeUserInfo, clearUserInfo, authToken }}>
@@ -63,6 +50,8 @@ function App() {
 						
 						<Route path="/jobs" element={<JobsBrowser />} />
 						<Route path="/jobs/:id" element={<JobDetails />} />
+						<Route path="/create-job-post" element={<JobCreate />} />
+						{/* <Route path="/manage-job-post/:job_id" element={<JobCreate />} /> */}
 
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-in" element={<SignIn />} />

@@ -12,7 +12,7 @@ export const makeRequest = (url, method='GET', headers={}, body={}, isRequestAut
     })
         .then(response => response.json())
         .catch(error => {
-            console.error(error);
+            // console.error(error);
             throw error;
         });
 };

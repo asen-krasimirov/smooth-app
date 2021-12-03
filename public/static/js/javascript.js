@@ -1,2 +1,2 @@
 import './buttonToTop.js';
-import './sign-up.js';
+// import './sign-up.js';

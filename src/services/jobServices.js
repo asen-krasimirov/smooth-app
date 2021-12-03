@@ -7,13 +7,24 @@ const pathMap = {
     'jobs': HOST + '/jobs',
 };
 
-export const getAll = () => {
-    let url = pathMap['jobs'];
+// export const getAll = () => {
+//     let url = pathMap['jobs'];
 
-    return makeRequest(url, 'GET');
+//     return makeRequest(url, 'GET');
+// };
+
+// export const getOne = (id) => {
+//     let url = pathMap['jobs'] + '/' + id;
+//     return makeRequest(url, 'POST');
+// };
+
+export const createJob = (body) => {
+    let url = pathMap['jobs'];
+    const headers = { 'Content-Type': 'application/json' };
+
+    return makeRequest(url, 'POST', headers, body, true);
 };
 
-export const getOne = (id) => {
-    let url = pathMap['jobs'] + '/' + id;
-    return makeRequest(url, 'POST');
+export const updateJob = (id, body) => {
+
 };

@@ -14,7 +14,7 @@ function Header({
     </li>;
 
     const createPostLink = <li className="type2">
-        <NavLink to="/create-post" className={status => status.isActive ? 'active' : ''}>Create Post</NavLink>
+        <NavLink to="/create-job-post" className={status => status.isActive ? 'active' : ''}>Create Post</NavLink>
     </li>;
 
     const appliedJobsLink = <li className="type2">

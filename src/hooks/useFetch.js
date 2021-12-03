@@ -1,27 +1,25 @@
 import { useState, useEffect } from 'react';
 
+// const HOST = 'https://smooth-app-api.herokuapp.com';
+const HOST = 'http://127.0.0.1:8000';
 
-const useFetch = (fetchFunc, defaultValue, funcParams) => {
+const useFetch = (path, defaultValue) => {
     const [state, updateState] = useState(defaultValue);
 
-    useEffect(() => {
-        try {
+    let url = HOST + path;
 
-        fetchFunc(funcParams)
+    useEffect(() => {
+
+        fetch(url)
+            .then(response => response.json())
             .then(data => {
                 updateState(data);
+            })
+            .catch(error => {
+                console.error(error);
             });
-        } catch(error) {
-            console.log(error);
-        }
 
-
-            // .catch(error => {
-            //     console.log(error);
-            //     updateState(defaultValue);
-            // });
-
-    }, [fetchFunc, funcParams, defaultValue]);
+    }, [url]);
 
     return { state };
 };

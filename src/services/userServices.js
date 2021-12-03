@@ -30,11 +30,11 @@ export const login = (body) => {
     return makeRequest(url, 'POST', headers, body);
 };
 
-export const getProfileDetails = (profile_id) => {
-    let url = pathMap['profile'] + '/' + profile_id;
+// export const getProfileDetails = (profile_id) => {
+//     let url = pathMap['profile'] + '/' + profile_id;
 
-    return makeRequest(url, 'GET');
-};
+//     return makeRequest(url, 'GET');
+// };
 
 export const updateProfileDetails = (profile_id, body) => {
     let url = pathMap['profile'] + '/' + profile_id;

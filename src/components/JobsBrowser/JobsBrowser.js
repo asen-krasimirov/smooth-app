@@ -2,12 +2,12 @@
 import './JobsBrowser.css';
 import Jobs from '../Jobs';
 
-import * as jobServices from '../../services/jobServices';
+// import * as jobServices from '../../services/jobServices';
 
 import useFetch from '../../hooks/useFetch';
 
 function JobsBrowser() {
-    const { state: jobsInfo } = useFetch(jobServices.getAll, {});
+    const { state: jobsInfo } = useFetch('/jobs/', {});
 
     const mappedJobsWithProfiles = () => {
         if (!jobsInfo.hasOwnProperty('jobs')) return [];
@@ -21,7 +21,8 @@ function JobsBrowser() {
 
         return jobs;
     };
-
+    
+    // console.log(jobsInfo);
     return (
         <div className="jobs">
             <section className="jobs-heading">
