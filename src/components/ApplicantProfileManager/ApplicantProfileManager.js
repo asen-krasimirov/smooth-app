@@ -12,6 +12,8 @@ function ApplicantProfileManager() {
     const navigation = useNavigate();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
+    console.log(profileData);
+
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
 
@@ -110,13 +112,13 @@ function ApplicantProfileManager() {
                     <div className="input-holder">
                         <label htmlFor="education-input">Education:</label>
                         <textarea id="education-input" name="education"
-                            placeholder="Put all qualifications you have here... And use `;` after every qualification." defaultValue={profileData.education} ></textarea>
+                            placeholder="Put all qualifications you have here... And use `;` after every qualification." defaultValue={profileData.education ? profileData.education.join(';') : ''} ></textarea>
                     </div>
 
                     <div className="input-holder">
                         <label htmlFor="skills-input">Skills:</label>
                         <textarea id="skills-input" name="skills"
-                            placeholder="Put all additional skills you have here... And use `;` after every skill." defaultValue={profileData.skills} ></textarea>
+                            placeholder="Put all additional skills you have here... And use `;` after every skill." defaultValue={profileData.skills ? profileData.skills.join(';') : ''} ></textarea>
                     </div>
 
                     <div className="input-holder">
