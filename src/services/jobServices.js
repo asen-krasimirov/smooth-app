@@ -34,7 +34,6 @@ export const updateJob = (id, body) => {
 
 export const deleteJob = (id) => {
     let url = pathMap['jobs'] + '/' + id;
-    // const headers ={ 'Content-Type': 'application/json' };
 
     return makeRequest(url, 'DELETE', {}, {}, true);
 };

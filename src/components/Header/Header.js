@@ -18,7 +18,7 @@ function Header({
     </li>;
 
     const appliedJobsLink = <li className="type2">
-        <NavLink to="/applied-jobs" className={isActive => isActive ? 'active' : ''}>Manage Applied Jobs</NavLink>
+        <NavLink to="/applied-jobs" className={status => status.isActive ? 'active' : ''}>Manage Applied Jobs</NavLink>
     </li>;
 
     const profileLink = <li className="type2">

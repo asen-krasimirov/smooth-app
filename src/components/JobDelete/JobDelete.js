@@ -6,7 +6,6 @@ import * as jobServices from '../../services/jobServices';
 
 function JobDelete() {
     const { id } = useParams();
-    // const { clearUserInfo } = useContext(AuthContext);
 
     const onJobDelete = () => {
         jobServices.deleteJob(id)
