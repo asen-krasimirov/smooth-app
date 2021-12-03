@@ -31,3 +31,10 @@ export const updateJob = (id, body) => {
 
     return makeRequest(url, 'PUT', headers, body, true);
 };
+
+export const deleteJob = (id) => {
+    let url = pathMap['jobs'] + '/' + id;
+    // const headers ={ 'Content-Type': 'application/json' };
+
+    return makeRequest(url, 'DELETE', {}, {}, true);
+};

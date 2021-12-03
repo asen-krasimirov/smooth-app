@@ -83,6 +83,10 @@ section.job-details {
     width: 100%;
 }
 
+.job-card .add-info p .head {
+    color: #FF6600;
+}
+
 .job-card .btn {
     margin-top: 50px;
     padding: 20px 50px;

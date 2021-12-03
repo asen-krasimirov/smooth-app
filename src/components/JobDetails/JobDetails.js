@@ -1,13 +1,9 @@
-// import { useState } from 'react';
-
 import { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
 
 import AuthContext from '../../contexts/AuthContext';
-
-// import * as jobServices from '../../services/jobServices';
 
 import './JobDetails.css';
 
@@ -16,11 +12,11 @@ function JobDetails() {
     const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
     const { userInfo } = useContext(AuthContext);
     const { job, profile } = jobInfo;
-    
+
     const managementBtns = (
         <div className='management-btns'>
             <Link to={ '/update-job-post/' + id } className="btn">Edit Job Details</Link>
-            <Link to="#" className="btn">Delete Job</Link>
+            <Link to={ '/delete-job-post/' + id } className="btn">Delete Job</Link>
         </div>
     );
 
@@ -57,10 +53,16 @@ function JobDetails() {
 
                                 <div className="add-info">
                                     <p className="time-ago">
-                                        1 day ago
+                                        <span className="head">Posted:</span> 1 day ago
                                     </p>
                                     <p className="applicant-count">
-                                        3 applicants
+                                        <span className="head">Applicants:</span> 3
+                                    </p>
+                                    <p className="job-type">
+                                        <span className="head">Job Type:</span> { job.type === 'FT' ? 'Full Time' : 'Part Time' }
+                                    </p>
+                                    <p className="job-status">
+                                        <span className="head">Hiring Status:</span> { job.type === 'AH' ? 'Active Hiring (urgent)' : 'Passive Hiring (not urgent)' }
                                     </p>
                                 </div>
 
@@ -68,7 +70,7 @@ function JobDetails() {
                                     userInfo.id
                                         ? job.owner_id === userInfo.id
                                             ? managementBtns
-                                            : !userInfo.is_business ? userBtns: null
+                                            : !userInfo.is_business ? userBtns : null
                                         : null
                                 }
 

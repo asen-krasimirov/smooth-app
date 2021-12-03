@@ -34,6 +34,7 @@ body {
 .applicant-profile-manage,
 .job-create,
 .job-update,
+.job-delete,
 .applied-jobs,
 .logout {
     display: flex;

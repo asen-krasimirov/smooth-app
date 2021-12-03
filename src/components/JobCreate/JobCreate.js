@@ -52,15 +52,6 @@ function JobCreate() {
     };
 
     const validateJobManageForm = (body) => {
-        // const typeMap = {
-        //     'Full Time': 'FT',
-        //     'Part Time': 'PT'
-        // };
-
-        // const statusMap = {
-        //     'Active Hiring (urgent)': 'AH',
-        //     'Passive Hiring (not urgent)': 'PH'
-        // };
 
         return {
             title: body.title,

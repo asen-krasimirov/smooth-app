@@ -9,9 +9,9 @@ import useFetch from '../../hooks/useFetch';
 import * as jobServices from '../../services/jobServices';
 
 function JobUpdate() {
-    const { job_id } = useParams();
+    const { id } = useParams();
     const navigation = useNavigate();
-    const { state: jobDetails } = useFetch('/jobs/' + job_id, {});
+    const { state: jobDetails } = useFetch('/jobs/' + id, {});
 
     const job = jobDetails.job || {};
     console.log('job => ', job);
@@ -29,9 +29,8 @@ function JobUpdate() {
 
         body = validateJobManageForm(body);
 
-        jobServices.updateJob(job_id, body)
+        jobServices.updateJob(id, body)
             .then(responseData => {
-                // console.log(responseData);
                 if (responseData['error_message']) {
                     let newErrorMessages = [];
 
@@ -55,15 +54,6 @@ function JobUpdate() {
     };
 
     const validateJobManageForm = (body) => {
-        // const typeMap = {
-        //     'Full Time': 'FT',
-        //     'Part Time': 'PT'
-        // };
-
-        // const statusMap = {
-        //     'Active Hiring (urgent)': 'AH',
-        //     'Passive Hiring (not urgent)': 'PH'
-        // };
 
         return {
             title: body.title,

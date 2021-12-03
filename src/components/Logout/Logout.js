@@ -7,9 +7,6 @@ import './Logout.css';
 
 function Logout() {
     const { clearUserInfo } = useContext(AuthContext);
-    // const onLogout = () => {
-    //     clearUserInfo();
-    // };
 
     return (
         <div className="logout">
