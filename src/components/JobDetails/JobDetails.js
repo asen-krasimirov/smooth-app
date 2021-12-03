@@ -19,7 +19,7 @@ function JobDetails() {
     
     const managementBtns = (
         <div className='management-btns'>
-            <Link to="#" className="btn">Edit Job Details</Link>
+            <Link to={ '/update-job-post/' + id } className="btn">Edit Job Details</Link>
             <Link to="#" className="btn">Delete Job</Link>
         </div>
     );

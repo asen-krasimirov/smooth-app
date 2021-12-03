@@ -26,5 +26,8 @@ export const createJob = (body) => {
 };
 
 export const updateJob = (id, body) => {
+    let url = pathMap['jobs'] + '/' + id;
+    const headers ={ 'Content-Type': 'application/json' };
 
+    return makeRequest(url, 'PUT', headers, body, true);
 };

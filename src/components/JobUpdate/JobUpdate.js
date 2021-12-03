@@ -1,18 +1,20 @@
-import './JobCreate.css';
+import './JobUpdate.css';
 
 import { useState } from 'react';
 
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
+
+import useFetch from '../../hooks/useFetch';
 
 import * as jobServices from '../../services/jobServices';
 
-function JobCreate() {
-    // const { job_id } = useParams();
+function JobUpdate() {
+    const { job_id } = useParams();
     const navigation = useNavigate();
-    // const fetchFunc = job_id ? jobServices.getOne : () => {};
-    // const { state: jobDetails } = useFetch(jobServices.getOne, {});
+    const { state: jobDetails } = useFetch('/jobs/' + job_id, {});
 
-    // console.log(jobDetails);
+    const job = jobDetails.job || {};
+    console.log('job => ', job);
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
@@ -27,24 +29,25 @@ function JobCreate() {
 
         body = validateJobManageForm(body);
 
-        jobServices.createJob(body)
+        jobServices.updateJob(job_id, body)
             .then(responseData => {
+                // console.log(responseData);
                 if (responseData['error_message']) {
                     let newErrorMessages = [];
 
                     try {
                         Object.values(responseData).forEach(
-                                messages => messages.forEach(
-                                    message => newErrorMessages.push(message)
-                                )
+                            messages => messages.forEach(
+                                message => newErrorMessages.push(message)
+                            )
                         );
-                    } catch(error) {
+                    } catch (error) {
                         newErrorMessages = Object.values(responseData);
                     }
 
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 } else {
-                    navigation('/jobs/' + responseData.id); // TODO: change to job page
+                    navigation('/jobs/' + responseData.job.id); // TODO: change to job page
                 };
 
             });
@@ -71,39 +74,39 @@ function JobCreate() {
     };
 
     return (
-        <div className="job-create">
-            <section className="generic-section job-create-section">
-                <h3>Job Create</h3>
+        <div className="job-update">
+            <section className="generic-section job-update-section">
+                <h3>Job Update</h3>
 
-                <form className="job-create-form" onSubmit={handleJobManageForm}>
+                <form className="job-update-form" onSubmit={handleJobManageForm}>
 
                     <div className="input-holder">
                         <label htmlFor="title-input">Job Title:</label>
-                        <input id="title-input" name="title" placeholder="The title of the job..." />
+                        <input id="title-input" name="title" placeholder="The title of the job..." defaultValue={job.title} />
                     </div>
 
                     <div className="input-holder">
                         <label htmlFor="description-input">Job Description:</label>
                         <textarea id="description-input" name="description"
-                            placeholder="Put information describing every aspect of the job you are offering... Make sure to include- qualifications required, what the applicants are going to do on the job and any other details as you see fit..."></textarea>
+                            placeholder="Put information describing every aspect of the job you are offering... Make sure to include- qualifications required, what the applicants are going to do on the job and any other details as you see fit..." defaultValue={job.description} ></textarea>
                     </div>
 
                     <div className="input-holder">
                         <label htmlFor="job-type-input">Job Type:</label>
                         <select name="type" id="job-type-input">
-                            <option value="FT">Full Time</option>
-                            <option value="PT">Part Time</option>
+                            <option value="FT" selected={ job.type === 'FT' ? 'true' : undefined } >Full Time</option>
+                            <option value="PT" selected={ job.type === 'PT' ? 'true' : undefined } >Part Time</option>
                         </select>
                     </div>
 
                     <div className="input-holder">
                         <label htmlFor="job-status-input">Job status:</label>
                         <select name="status" id="job-status-input">
-                            <option value="AH">Active Hiring (urgent)</option>
-                            <option value="PH">Passive Hiring (not urgent)</option>
+                            <option value="PH" selected={ job.status === 'PH' ? 'true' : undefined } >Passive Hiring (not urgent)</option>
+                            <option value="AH" selected={ job.status === 'AH' ? 'true' : undefined } >Active Hiring (urgent)</option>
                         </select>
                     </div>
-                    
+
                     {
                         !isFormValid.isValid
                             ? <ul className="error-list">
@@ -125,4 +128,4 @@ function JobCreate() {
     );
 }
 
-export default JobCreate;
+export default JobUpdate;

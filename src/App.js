@@ -6,9 +6,11 @@ import AuthContext from './contexts/AuthContext';
 
 import Header from './components/Header';
 import Landing from './components/Landing';
+
 import JobsBrowser from './components/JobsBrowser';
 import JobDetails from './components/JobDetails';
 import JobCreate from './components/JobCreate';
+import JobUpdate from './components/JobUpdate';
 
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
@@ -51,7 +53,7 @@ function App() {
 						<Route path="/jobs" element={<JobsBrowser />} />
 						<Route path="/jobs/:id" element={<JobDetails />} />
 						<Route path="/create-job-post" element={<JobCreate />} />
-						{/* <Route path="/manage-job-post/:job_id" element={<JobCreate />} /> */}
+						<Route path="/update-job-post/:job_id" element={<JobUpdate />} />
 
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-in" element={<SignIn />} />

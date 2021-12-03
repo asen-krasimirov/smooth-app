@@ -1,46 +1,46 @@
-.job-create-section {
+.job-update-section {
     padding: 0;
     border: none;
 }
 
-.job-create-section .job-create-form {
+.job-update-section .job-update-form {
     display: flex;
     flex-direction: column;
     width: 60%;
 }
-.job-create-section .job-create-form .input-holder {
+.job-update-section .job-update-form .input-holder {
     display: flex;
     align-items: center;
     margin: 20px;
 }
 
-.job-create-section .job-create-form input, 
-.job-create-section .job-create-form label {
+.job-update-section .job-update-form input, 
+.job-update-section .job-update-form label {
     flex-basis: 50%;
     font-size: 2.3rem;
 }
 
-.job-create-section .job-create-form textarea {
+.job-update-section .job-update-form textarea {
     height: 500px;
     flex-basis: 60%;
     padding: 5px 10px;
     font-size: 1.5rem;
 }
 
-.job-create-section .job-create-form select {
+.job-update-section .job-update-form select {
     flex-basis: 60%;
     padding: 5px 10px;
     font-size: 1.5rem;
 }
 
-.job-create-section .job-create-form input {
+.job-update-section .job-update-form input {
     flex-basis: 60%;
 }
 
-.job-create-section .job-create-form label {
+.job-update-section .job-update-form label {
     flex-basis: 40%;
 }
 
-.job-create-section .job-create-form .btn {
+.job-update-section .job-update-form .btn {
     margin-top: 20px;
 }
