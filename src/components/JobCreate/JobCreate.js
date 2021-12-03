@@ -53,19 +53,28 @@ function JobCreate() {
     };
 
     const validateJobManageForm = (body) => {
+        const typeMap = {
+            'Full Time': 'FT',
+            'Part Time': 'PT'
+        };
+
+        const statusMap = {
+            'Active Hiring (urgent)': 'AH',
+            'Passive Hiring (not urgent)': 'PH'
+        };
 
         return {
             title: body.title,
             description: body.description,
-            type: body.type,
-            status: body.status,
+            type: typeMap[body.type],
+            status: statusMap[body.status],
         };
     };
 
     return (
         <div className="job-manager">
             <section className="generic-section job-manager-section">
-                <h3>Job Manager</h3>
+                <h3>Job Create</h3>
 
                 <form className="job-manager-form" onSubmit={handleJobManageForm}>
 
