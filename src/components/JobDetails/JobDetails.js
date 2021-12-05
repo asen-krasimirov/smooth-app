@@ -41,7 +41,7 @@ function JobDetails() {
                                             {job.title}
                                         </h4>
                                         <p className="offered-by">
-                                            offered by <Link to="#">{profile.name}</Link>
+                                            offered by <Link to={'/business-profile/' + profile.id}>{profile.name}</Link>
                                         </p>
                                     </div>
                                 </div>

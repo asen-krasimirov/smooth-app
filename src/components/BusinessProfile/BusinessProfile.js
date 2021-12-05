@@ -2,12 +2,14 @@ import './BusinessProfile.css';
 import Jobs from '../Jobs';
 
 import { Link, useParams } from 'react-router-dom';
-
+import { useAuthContext } from '../../contexts/AuthContext';
 import useFetch from '../../hooks/useFetch';
 
 import * as jobServices from '../../services/jobServices';
 
 function BusinessProfile() {
+    const { userInfo } = useAuthContext();
+
     const { profile_id } = useParams();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
@@ -43,12 +45,17 @@ function BusinessProfile() {
 
                         </div>
 
-                        <div className="managment-btns">
-                            <Link to={'/business-profile-manage/' + profile_id} className="btn edit-btn">
-                                <i className="far fa-edit"></i>
-                                Edit Profile
-                            </Link>
-                        </div>
+                        {
+                            String(userInfo.id) === profile_id
+                                ? <div className="managment-btns">
+                                    <Link to={'/business-profile-manage/' + profile_id} className="btn edit-btn">
+                                        <i className="far fa-edit"></i>
+                                        Edit Profile
+                                    </Link>
+                                </div>
+                                : null
+                        }
+                        
                     </div>
 
                     <div className="main-info">

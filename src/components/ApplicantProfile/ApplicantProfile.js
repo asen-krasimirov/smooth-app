@@ -1,12 +1,15 @@
 import './ApplicantProfile.css';
 
 import { Link, useParams } from 'react-router-dom';
-
+import { useAuthContext } from '../../contexts/AuthContext';
 import useFetch from '../../hooks/useFetch';
 
 function ApplicantProfile() {
+    const { userInfo } = useAuthContext();
+
     const { profile_id } = useParams();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
+
     const backgroundImageStyle = {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${profileData.background_image}")`,
         backgroundSize: 'cover',
@@ -36,16 +39,21 @@ function ApplicantProfile() {
                             </h6> */}
                         </div>
 
-                        <div className="managment-btns">
-                            <a href="##" className="btn edit-btn">
-                                <i className="fas fa-tasks"></i>
-                                Manage Applied Jobs
-                            </a>
-                            <Link to={'/applicant-profile-manage/' + profile_id} className="btn edit-btn">
-                                <i className="far fa-edit"></i>
-                                Edit Profile
-                            </Link>
-                        </div>
+                        {
+                            String(userInfo.id) === profile_id
+                                ? <div className="managment-btns">
+                                    <a href="##" className="btn edit-btn">
+                                        <i className="fas fa-tasks"></i>
+                                        Manage Applied Jobs
+                                    </a>
+                                    <Link to={'/applicant-profile-manage/' + profile_id} className="btn edit-btn">
+                                        <i className="far fa-edit"></i>
+                                        Edit Profile
+                                    </Link>
+                                </div>
+                                : null
+                        }
+
                     </div>
 
                     <div className="main-info">
