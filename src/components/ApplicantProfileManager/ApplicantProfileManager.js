@@ -44,7 +44,7 @@ function ApplicantProfileManager() {
 
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 } else {
-                    navigation('/'); // TODO: change to profile page
+                    navigation('/applicant-profile/' + profile_id); // TODO: change to profile page
                 };
 
             });

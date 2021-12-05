@@ -38,9 +38,9 @@ section.applicant-profile {
         rgba(0, 0, 0, 0.5)
     ), url('../images/default-applicant-background.png'); */
 
-    background-size: cover;
+    /* background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: no-repeat; */
 }
 
 .applicant-card .applicant-heading .managment-btns {

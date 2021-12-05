@@ -1,6 +1,6 @@
 import './ApplicantProfile.css';
 
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
 
@@ -8,16 +8,12 @@ function ApplicantProfile() {
     const { profile_id } = useParams();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
-    console.log(profileData);
-
     const backgroundImageStyle = {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${profileData.background_image}")`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
     };
-
-    console.log(backgroundImageStyle);
 
     return (
 
@@ -46,10 +42,10 @@ function ApplicantProfile() {
                                 <i className="fas fa-tasks"></i>
                                 Manage Applied Jobs
                             </a>
-                            <a href="##" className="btn edit-btn">
+                            <Link to={'/applicant-profile-manage/' + profile_id} className="btn edit-btn">
                                 <i className="far fa-edit"></i>
                                 Edit Profile
-                            </a>
+                            </Link>
                         </div>
                     </div>
 

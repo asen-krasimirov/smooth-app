@@ -1,3 +1,4 @@
+/* eslint-disable curly */
 import { makeRequest } from './services';
 
 // const HOST = 'https://smooth-app-api.herokuapp.com';
@@ -17,6 +18,19 @@ const pathMap = {
 //     let url = pathMap['jobs'] + '/' + id;
 //     return makeRequest(url, 'POST');
 // };
+
+export const mapJobsWithProfiles = (jobsInfo) => {
+    const jobs = [];
+
+    if (!jobsInfo.hasOwnProperty('jobs')) return jobs;
+
+    jobsInfo.jobs.forEach(job => {
+        const profile = jobsInfo.profiles.find(profile => profile.id === job.owner_id);
+        jobs.push({job, profile}); 
+    });
+
+    return jobs;
+};
 
 export const createJob = (body) => {
     let url = pathMap['jobs'];

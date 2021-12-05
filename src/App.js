@@ -17,7 +17,8 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Logout from './components/Logout';
 
-import ApplicantProfile from './components/ApplicantProfile/ApplicantProfile';
+import ApplicantProfile from './components/ApplicantProfile';
+import BusinessProfile from './components/BusinessProfile';
 
 import ApplicantProfileManager from './components/ApplicantProfileManager';
 import BusinessProfileManager from './components/BusinessProfileManager';
@@ -25,24 +26,6 @@ import BusinessProfileManager from './components/BusinessProfileManager';
 // import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
-	// const initialUseData = {
-	// 	user_id: null,
-	// 	user_is_business: null,
-	// 	// AUTH_TOKEN: null
-	// };
-
-	// const [userInfo, updateUserInfo] = useLocalStorage('user', initialUseData);
-	// const [authToken, updateAuthToken] = useLocalStorage('authToken', '');
-
-	// const changeUserInfo = (data) => {
-	// 	updateUserInfo(data.user);
-	// 	updateAuthToken(data.token);
-	// };
-
-	// const clearUserInfo = () => {
-	// 	updateUserInfo(initialUseData);
-	// 	updateAuthToken('');
-	// };
 
 	return (
 		<AttachAuthContext>
@@ -64,6 +47,7 @@ function App() {
 						<Route path="/logout" element={<Logout />} />
 
 						<Route path="applicant-profile/:profile_id" element={<ApplicantProfile />} />
+						<Route path="business-profile/:profile_id" element={<BusinessProfile />} />
 
 						<Route path="/applicant-profile-manage/:profile_id" element={<ApplicantProfileManager />} />
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
