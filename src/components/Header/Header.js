@@ -1,9 +1,10 @@
 import { NavLink } from 'react-router-dom';
+import { useAuthContext } from '../../contexts/AuthContext';
 import './Header.css';
 
-function Header({
-    userInfo
-}) {
+function Header() {
+
+    const { userInfo } = useAuthContext();
 
     const jobsLink = <li className="type2">
         <NavLink to="/jobs" className={status => status.isActive ? 'active' : ''}>Jobs</NavLink>

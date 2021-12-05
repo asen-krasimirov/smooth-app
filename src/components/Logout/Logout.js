@@ -1,12 +1,11 @@
-import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 
-import AuthContext from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 import './Logout.css';
 
 function Logout() {
-    const { clearUserInfo } = useContext(AuthContext);
+    const { clearUserInfo } = useAuthContext();
 
     return (
         <div className="logout">

@@ -12,7 +12,7 @@ function ApplicantProfileManager() {
     const navigation = useNavigate();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
-    console.log(profileData);
+    // console.log(profileData);
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);

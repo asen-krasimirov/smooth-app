@@ -1,8 +1,8 @@
 /* eslint-disable curly */
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import AuthContext from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 import './SignIn.css';
 
@@ -11,7 +11,7 @@ import * as userServices from '../../services/userServices';
 function SignIn() {
     const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
     const navigation = useNavigate();
-    const { changeUserInfo } = useContext(AuthContext);
+    const { changeUserInfo } = useAuthContext();
 
     const handleSignInForm = e => {
         e.preventDefault();

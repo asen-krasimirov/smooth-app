@@ -2,7 +2,7 @@
 // import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import AuthContext from './contexts/AuthContext';
+import { AttachAuthContext } from './contexts/AuthContext';
 
 import Header from './components/Header';
 import Landing from './components/Landing';
@@ -22,32 +22,32 @@ import ApplicantProfile from './components/ApplicantProfile/ApplicantProfile';
 import ApplicantProfileManager from './components/ApplicantProfileManager';
 import BusinessProfileManager from './components/BusinessProfileManager';
 
-import useLocalStorage from './hooks/useLocalStorage';
+// import useLocalStorage from './hooks/useLocalStorage';
 
 function App() {
-	const initialUseData = {
-		user_id: null,
-		user_is_business: null,
-		// AUTH_TOKEN: null
-	};
+	// const initialUseData = {
+	// 	user_id: null,
+	// 	user_is_business: null,
+	// 	// AUTH_TOKEN: null
+	// };
 
-	const [userInfo, updateUserInfo] = useLocalStorage('user', initialUseData);
-	const [authToken, updateAuthToken] = useLocalStorage('authToken', '');
+	// const [userInfo, updateUserInfo] = useLocalStorage('user', initialUseData);
+	// const [authToken, updateAuthToken] = useLocalStorage('authToken', '');
 
-	const changeUserInfo = (data) => {
-		updateUserInfo(data.user);
-		updateAuthToken(data.token);
-	};
+	// const changeUserInfo = (data) => {
+	// 	updateUserInfo(data.user);
+	// 	updateAuthToken(data.token);
+	// };
 
-	const clearUserInfo = () => {
-		updateUserInfo(initialUseData);
-		updateAuthToken('');
-	};
+	// const clearUserInfo = () => {
+	// 	updateUserInfo(initialUseData);
+	// 	updateAuthToken('');
+	// };
 
 	return (
-		<AuthContext.Provider value={{ userInfo, changeUserInfo, clearUserInfo, authToken }}>
+		<AttachAuthContext>
 			<>
-				<Header userInfo={userInfo} />
+				<Header />
 
 				<main className="content-container">
 					<Routes>
@@ -79,7 +79,7 @@ function App() {
 					Asen Krasimirov &copy; All Rights Received
 				</footer>
 			</>
-		</AuthContext.Provider>
+		</AttachAuthContext>
 	);
 }
 

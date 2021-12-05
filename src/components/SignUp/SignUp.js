@@ -2,17 +2,17 @@
 
 import './SignUp.css';
 
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
-import AuthContext from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 import * as userServices from '../../services/userServices';
 
 function SignUp() {
     const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
     const navigation = useNavigate();
-    const { changeUserInfo } = useContext(AuthContext);
+    const { changeUserInfo } = useAuthContext();
 
     const handleSignUpForm = e => {
         e.preventDefault();

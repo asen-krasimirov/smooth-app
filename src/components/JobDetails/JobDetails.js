@@ -1,16 +1,15 @@
-import { useContext } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 import useFetch from '../../hooks/useFetch';
 
-import AuthContext from '../../contexts/AuthContext';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 import './JobDetails.css';
 
 function JobDetails() {
     const { id } = useParams();
     const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
-    const { userInfo } = useContext(AuthContext);
+    const { userInfo } = useAuthContext();
     const { job, profile } = jobInfo;
 
     const managementBtns = (
