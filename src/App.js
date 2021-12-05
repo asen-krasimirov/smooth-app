@@ -17,9 +17,11 @@ import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
 import Logout from './components/Logout';
 
+// import Profile from './components/Profile';
 import ApplicantProfile from './components/ApplicantProfile';
 import BusinessProfile from './components/BusinessProfile';
 
+// import ProfileManager from './components/ProfileManager';
 import ApplicantProfileManager from './components/ApplicantProfileManager';
 import BusinessProfileManager from './components/BusinessProfileManager';
 
@@ -44,9 +46,11 @@ function App() {
 						<Route path="/sign-in" element={<SignIn />} />
 						<Route path="/logout" element={<Logout />} />
 
+						{/* <Route path="/profile/:profile_id" element={<Profile />} /> */}
 						<Route path="applicant-profile/:profile_id" element={<ApplicantProfile />} />
 						<Route path="business-profile/:profile_id" element={<BusinessProfile />} />
 
+						{/* <Route path="/profile-manage/:profile_id" element={<ProfileManager />} /> */}
 						<Route path="/applicant-profile-manage/:profile_id" element={<ApplicantProfileManager />} />
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
 						

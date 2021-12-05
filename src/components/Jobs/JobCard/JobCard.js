@@ -19,7 +19,7 @@ function JobCard({
                     {jobInfo.title}
                 </h4>
                 <p className="offered-by">
-                    offered by <a href="##">{profileInfo.name}</a>
+                    offered by <Link to={'/business-profile/' + profileInfo.id}>{profileInfo.name}</Link>
                 </p>
             </div>
 

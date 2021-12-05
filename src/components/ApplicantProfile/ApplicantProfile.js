@@ -7,7 +7,6 @@ import useFetch from '../../hooks/useFetch';
 function ApplicantProfile() {
     const { profile_id } = useParams();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
-
     const backgroundImageStyle = {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${profileData.background_image}")`,
         backgroundSize: 'cover',
