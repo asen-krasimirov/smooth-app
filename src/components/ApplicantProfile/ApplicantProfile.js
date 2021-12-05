@@ -10,12 +10,21 @@ function ApplicantProfile() {
 
     console.log(profileData);
 
+    const backgroundImageStyle = {
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${profileData.background_image}")`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+    };
+
+    console.log(backgroundImageStyle);
+
     return (
 
         <div className="applicant-profile">
             <section className="generic-section applicant-profile">
                 <article className="applicant-card">
-                    <div className="applicant-heading">
+                    <div className="applicant-heading" style={backgroundImageStyle}>
 
                         <div className="image-holder">
                             <img className="applicant-image" src={profileData.icon_image}
