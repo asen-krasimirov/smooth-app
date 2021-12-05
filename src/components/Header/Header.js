@@ -23,7 +23,7 @@ function Header() {
     </li>;
 
     const profileLink = <li className="type2">
-        <NavLink to="/profile" className={status => status.isActive ? 'active' : ''}>Profile</NavLink>
+        <NavLink to={(userInfo.is_business ? '/business-profile/' : '/applicant-profile/') + userInfo.id} className={status => status.isActive ? 'active' : ''}>Profile</NavLink>
     </li>;
 
     const signInLink = <li className="type2">

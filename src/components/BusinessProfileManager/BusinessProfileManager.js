@@ -37,13 +37,12 @@ function BusinessProfileManager() {
                                 )
                         );
                     } catch(error) {
-                        // console.error(error);
                         newErrorMessages = Object.values(responseData);
                     }
 
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 } else {
-                    navigation('/business-profile/' + profile_id); // TODO: change to profile page
+                    navigation('/business-profile/' + profile_id);
                 };
 
             });

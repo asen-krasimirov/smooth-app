@@ -23,8 +23,6 @@ import BusinessProfile from './components/BusinessProfile';
 import ApplicantProfileManager from './components/ApplicantProfileManager';
 import BusinessProfileManager from './components/BusinessProfileManager';
 
-// import useLocalStorage from './hooks/useLocalStorage';
-
 function App() {
 
 	return (
