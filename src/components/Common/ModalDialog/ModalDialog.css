@@ -1,0 +1,30 @@
+.modal-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    height: 50%;
+    width: 100%;
+    
+    /* background: #23272E; */
+    /* filter: blur(10px); */
+}
+
+.modal-dialog {
+    width: 100%;
+    text-align: center;
+}
+
+.modal-message {
+    font-size: 2.5rem;
+}
+
+.modal-btn {
+    margin: 50px;
+    width: 100px;
+}

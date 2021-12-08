@@ -11,7 +11,6 @@ import JobsBrowser from './components/JobsBrowser';
 import JobDetails from './components/JobDetails';
 import JobCreate from './components/JobCreate';
 import JobUpdate from './components/JobUpdate';
-import JobDelete from './components/JobDelete';
 
 import SignUp from './components/SignUp';
 import SignIn from './components/SignIn';
@@ -24,8 +23,6 @@ import ApplicantProfileManager from './components/ApplicantProfileManager';
 import BusinessProfileManager from './components/BusinessProfileManager';
 
 import AppliedJobs from './components/AppliedJobs';
-import JobApply from './components/JobApply';
-import JobUnapply from './components/JobUnapply';
 
 function App() {
 
@@ -42,7 +39,7 @@ function App() {
 						<Route path="/jobs/:id" element={<JobDetails />} />
 						<Route path="/create-job-post" element={<JobCreate />} />
 						<Route path="/update-job-post/:id" element={<JobUpdate />} />
-						<Route path="/delete-job-post/:id" element={<JobDelete />} />
+						{/* <Route path="/delete-job-post/:id" element={<JobDelete />} /> */}
 
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-in" element={<SignIn />} />
@@ -55,8 +52,6 @@ function App() {
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
 
 						<Route path="/applied-jobs" element={<AppliedJobs />} />
-						<Route path="/apply/:id" element={<JobApply />} />
-						<Route path="/unapply/:id" element={<JobUnapply />} />
 						
 					</Routes>
 				</main>
