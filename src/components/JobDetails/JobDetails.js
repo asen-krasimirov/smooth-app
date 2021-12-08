@@ -8,6 +8,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import * as jobServices from '../../services/jobServices';
 
 import ModalDialog from '../Common/ModalDialog/ModalDialog';
+import Applicants from './Applicants/Applicants';
 
 function JobDetails() {
     const { id } = useParams();
@@ -15,18 +16,15 @@ function JobDetails() {
     const { userInfo } = useAuthContext();
 
     const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
-    
     const { state: jobAppliedInfo } = useFetch('/jobs/applied/' + id + '/?user_id=' + userInfo.id, {});
-
+    const { state: applicantsData } = useFetch('/jobs/' + id + '/applicants', []);
+    
+    const { applicants } = applicantsData;
     const { job, profile } = jobInfo;
 
     const [showDelModal, setShowDelModal] = useState(false);
 
     const hasApplied = jobAppliedInfo.hasOwnProperty('job') && jobAppliedInfo.job.user_id === userInfo.id;
-
-    // console.log('applied job data:', jobAppliedInfo.job);
-    // console.log('user id:', userInfo.id);
-    // console.log(hasApplied);
 
     const [showApplyModal, setShowApplyModal] = useState(false);
     const [showUnapplyModal, setShowUnapplyModal] = useState(false);
@@ -73,8 +71,6 @@ function JobDetails() {
     );
     
     const userBtns = hasApplied
-        // ? <Link to={ '/unapply/' + id } className="btn">Unapply</Link>
-        // : <Link to={ '/apply/' + id } className="btn">Apply</Link>;
         ? <button className="btn" onClick={() => setShowUnapplyModal(true)}>Unapply</button>
         : <button className="btn" onClick={() => setShowApplyModal(true)}>Apply</button>;
 
@@ -125,6 +121,16 @@ function JobDetails() {
                                         ? job.owner_id === userInfo.id
                                             ? managementBtns
                                             : !userInfo.is_business ? userBtns : null
+                                        : null
+                                }
+
+                                {
+                                    userInfo.id
+                                        ? job.owner_id === userInfo.id
+                                            ? applicants && applicants.length > 0
+                                                ? <Applicants profiles={applicants} />
+                                                : null
+                                            : null
                                         : null
                                 }
 

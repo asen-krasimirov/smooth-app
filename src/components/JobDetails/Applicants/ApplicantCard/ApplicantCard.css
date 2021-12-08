@@ -1,0 +1,55 @@
+.applied-applicant-card {
+    width: 70%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    
+    margin: 20px 0;
+    padding: 20px;
+    
+    font-size: 2rem;
+
+    color: #23272E;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.applied-applicant-info {
+    display: flex;
+    align-items: center;
+}
+
+.applied-applicant-info .number-count {
+    font-size: 2.5rem;
+}
+
+.applied-applicant-info .applicant-icon {
+    max-width: 80px;
+    border-radius: 50%;
+}
+
+/* .applied-applicant-card .applied-name {
+    display: flex;
+    align-items: center;
+    margin: 0 50px;
+} */
+
+.applied-applicant-card .applicant-name {
+    margin: 0 50px;
+}
+
+.applied-applicant-card .number-count {
+    margin: 0 50px;
+}
+
+.applied-applicant-card .applicant-profile-link {
+    /* color: #fff; */
+    /* margin: 0 50px; */
+    margin: 0;
+}
+
+.btn.applied-profile-link {
+    margin-top: 0;
+    font-size: 1.5rem;
+}

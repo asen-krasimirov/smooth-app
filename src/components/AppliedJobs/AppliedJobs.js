@@ -21,7 +21,13 @@ function AppliedJobs() {
             <section className="applied-jobs-holder">
                 {
                     jobs.length > 0
-                        ? jobs.map((job, number) => <AppliedJobCard key={job.id} id={job.id} job_id={job.job_id} number={number + 1} title={job.title} />)
+                        ? jobs.map((job, number) => <AppliedJobCard
+                            key={job.id}
+                            id={job.id}
+                            job_id={job.job_id}
+                            number={number + 1}
+                            title={job.title}
+                        />)
                         : <p className="no-applied-jobs">
                             You haven't applied to any jobs yet! Do it from the job browser <Link to="/jobs">here</Link>.
                         </p>
