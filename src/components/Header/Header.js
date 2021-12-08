@@ -10,9 +10,9 @@ function Header() {
         <NavLink to="/jobs" className={status => status.isActive ? 'active' : ''}>Jobs</NavLink>
     </li>;
 
-    const applicantsLink = <li className="type2">
-        <NavLink to="/applicants" className={status => status.isActive ? 'active' : ''}>Applicants</NavLink>
-    </li>;
+    // const applicantsLink = <li className="type2">
+    //     <NavLink to="/applicants" className={status => status.isActive ? 'active' : ''}>Applicants</NavLink>
+    // </li>;
 
     const createPostLink = <li className="type2">
         <NavLink to="/create-job-post" className={status => status.isActive ? 'active' : ''}>Create Post</NavLink>
@@ -47,14 +47,7 @@ function Header() {
             <nav className="main-navigation">
                 <ul>
                     <div className="browser-link-holder">
-                        {
-                            userInfo.id
-                                ? userInfo.is_business
-                                    ? applicantsLink
-                                    : jobsLink
-                                : jobsLink
-                        }
-
+                        {jobsLink}
                     </div>
 
                     <div className="management-link-holder">

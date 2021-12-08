@@ -2,13 +2,28 @@
 import './JobsBrowser.css';
 import Jobs from '../Jobs';
 
+import { useState } from 'react';
 import useFetch from '../../hooks/useFetch';
 
 import * as jobServices from '../../services/jobServices';
 
 function JobsBrowser() {
-    const { state: jobsInfo } = useFetch('/jobs/', {});
-    const mappedJobsWithProfiles = jobServices.mapJobsWithProfiles(jobsInfo);
+    const [url, setUrl] = useState('/jobs/');
+    const { state: jobsInfo } = useFetch(url, {});
+
+    const [curPage, setCurPage] = useState(1);
+    const maxPage = jobsInfo.count ? Math.ceil(jobsInfo.count / 9) : 0;
+
+    const mappedJobsWithProfiles = jobServices.mapJobsWithProfiles(jobsInfo.results ? jobsInfo.results : {});
+
+    const changeURL = (url) => {
+        const parsedURL = new URL(url);
+        let path = parsedURL.pathname + parsedURL.search;
+        let curPage = parsedURL.searchParams.get('page') || 1;
+
+        setCurPage(curPage);
+        setUrl(path);
+    };
 
     return (
         <div className="jobs">
@@ -21,7 +36,16 @@ function JobsBrowser() {
                 </form>
             </section>
 
-            <Jobs jobsInfo={mappedJobsWithProfiles}/>
+            <Jobs
+                jobsInfo={mappedJobsWithProfiles}
+
+                curPage={curPage}
+                maxPage={maxPage}
+                hasPrevious={Boolean(jobsInfo.previous)}
+                hasNext={Boolean(jobsInfo.next)}
+                previousURLChange={() => changeURL(jobsInfo.previous ? jobsInfo.previous : () => { })}
+                nextURLChange={jobsInfo.next ? () => changeURL(jobsInfo.next) : () => { }}
+            />
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import './BusinessProfile.css';
 import Jobs from '../Jobs';
 
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 import useFetch from '../../hooks/useFetch';
@@ -13,8 +14,25 @@ function BusinessProfile() {
     const { profile_id } = useParams();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
 
-    const { state: jobsInfo } = useFetch('/jobs/?owner_id=' + profile_id, {});
-    const mappedJobsWithProfiles = jobServices.mapJobsWithProfiles(jobsInfo);
+
+    const [url, setUrl] = useState('/jobs/?owner_id=' + profile_id, {});
+    const { state: jobsInfo } = useFetch(url, {});
+
+    const [curPage, setCurPage] = useState(1);
+    const maxPage = jobsInfo.count ? Math.ceil(jobsInfo.count / 9) : 0;
+
+    const changeURL = (url) => {
+        const parsedURL = new URL(url);
+        let path = parsedURL.pathname + parsedURL.search + '&?owner_id=' + profile_id;
+        let curPage = parsedURL.searchParams.get('page') || 1;
+
+        setCurPage(curPage);
+        setUrl(path);
+    };
+
+    // const { state: jobsInfo } = useFetch('/jobs/?owner_id=' + profile_id, {});
+
+    const mappedJobsWithProfiles = jobServices.mapJobsWithProfiles(jobsInfo.results ? jobsInfo.results : {});
 
     const backgroundImageStyle = {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("${profileData.background_image}")`,
@@ -23,6 +41,7 @@ function BusinessProfile() {
         backgroundRepeat: 'no-repeat',
     };
 
+    // console.log(mappedJobsWithProfiles);
     return (
 
         <div className="business-profile">
@@ -55,7 +74,7 @@ function BusinessProfile() {
                                 </div>
                                 : null
                         }
-                        
+
                     </div>
 
                     <div className="main-info">
@@ -66,9 +85,24 @@ function BusinessProfile() {
                         You can visit the company's official website <a href={profileData.business_website}>here</a>. Contact Number: <span className="number">+356876071006</span> Email: <span className="email">qnko_group_v_tqh@gmail.com</span>
                     </div>
 
-                    <h2>Posted Offers</h2>
+                    {
+                        mappedJobsWithProfiles.length > 0
+                            ? <>
+                                <h2>Posted Offers</h2>
 
-                    <Jobs jobsInfo={mappedJobsWithProfiles} />
+                                <Jobs
+                                    jobsInfo={mappedJobsWithProfiles}
+
+                                    curPage={curPage}
+                                    maxPage={maxPage}
+                                    hasPrevious={Boolean(jobsInfo.previous)}
+                                    hasNext={Boolean(jobsInfo.next)}
+                                    previousURLChange={() => changeURL(jobsInfo.previous ? jobsInfo.previous : () => { })}
+                                    nextURLChange={jobsInfo.next ? () => changeURL(jobsInfo.next) : () => { }}
+                                />
+                            </>
+                            : null
+                    }
                 </article>
             </section>
         </div>

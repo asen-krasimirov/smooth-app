@@ -14,7 +14,7 @@ function JobUpdate() {
     const { state: jobDetails } = useFetch('/jobs/' + id, {});
 
     const job = jobDetails.job || {};
-    console.log('job => ', job);
+    // console.log('job => ', job);
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
