@@ -1,0 +1,24 @@
+.applied-jobs-holder {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.applied-jobs-title {
+    font-size: 4rem;
+    margin: 0;
+}
+.applied-jobs-sub-title {
+    font-size: 1.5rem;
+}
+.applied-jobs-sub-title .highlighted {
+    color: #FF6600;
+}
+
+.no-applied-jobs {
+    font-size: 1.4rem;
+}
+
+.no-applied-jobs a {
+    color: #FF6600;
+}

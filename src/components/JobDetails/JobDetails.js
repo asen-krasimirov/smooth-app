@@ -8,8 +8,12 @@ import './JobDetails.css';
 
 function JobDetails() {
     const { id } = useParams();
-    const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
     const { userInfo } = useAuthContext();
+
+    const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
+    
+    const { state: jobAppliedInfo } = useFetch('/jobs/applied/' + id + '/?user_id=' + userInfo.id, {});
+
     const { job, profile } = jobInfo;
 
     const managementBtns = (
@@ -18,10 +22,10 @@ function JobDetails() {
             <Link to={ '/delete-job-post/' + id } className="btn">Delete Job</Link>
         </div>
     );
-
-    const userBtns = (
-        <Link to="#" className="btn">Apply</Link>
-    );
+    
+    const userBtns = jobAppliedInfo.hasOwnProperty('job') && jobAppliedInfo.job.user_id === userInfo.id
+        ? <Link to={ '/unapply/' + id } className="btn">Unapply</Link>
+        : <Link to={ '/apply/' + id } className="btn">Apply</Link>;
 
     return (
         <>

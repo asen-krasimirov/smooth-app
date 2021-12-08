@@ -6,6 +6,7 @@ const HOST = 'http://127.0.0.1:8000';
 
 const pathMap = {
     'jobs': HOST + '/jobs',
+    'applied_jobs': HOST + '/jobs/applied',
 };
 
 // export const getAll = () => {
@@ -48,6 +49,20 @@ export const updateJob = (id, body) => {
 
 export const deleteJob = (id) => {
     let url = pathMap['jobs'] + '/' + id;
+
+    return makeRequest(url, 'DELETE', {}, {}, true);
+};
+
+export const applyToJob = (job_id) => {
+    let url = pathMap['applied_jobs'];
+    const headers ={ 'Content-Type': 'application/json' };
+
+    return makeRequest(url, 'POST', headers, { job_id }, true);
+};
+
+export const unApplyToJob = (job_id) => {
+    let url = pathMap['applied_jobs'] + '/' + job_id;
+    // const headers ={ 'Content-Type': 'application/json' };
 
     return makeRequest(url, 'DELETE', {}, {}, true);
 };

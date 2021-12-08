@@ -1,0 +1,10 @@
+.job-unapply .job-unapply-title {
+    margin: 0;
+    margin-bottom: 50px;
+    font-size: 3rem;
+}
+
+.job-unapply .option-btns .btn {
+    margin: 0 10px;
+    padding: 10px 50px;
+}

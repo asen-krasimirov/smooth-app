@@ -36,7 +36,10 @@ body {
 .job-update,
 .job-delete,
 .applied-jobs,
-.logout {
+.logout,
+.applied-jobs,
+.job-apply,
+.job-unapply {
     display: flex;
     flex-direction: column;
     align-items: center;
