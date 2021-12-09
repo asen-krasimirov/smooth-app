@@ -31,7 +31,19 @@
 @media all and (max-width: 600px ) {
     .job-holder {
         flex-direction: column;
+        align-items: center;
+
         margin: 0;
-        border-radius: 2%;
+        border-radius: 20px;
     }
+
+    .pagination-btns {
+        font-size: 1.5rem;
+    }
+
+    .pagination-btns .btn {
+        width: 100px;
+        font-size: 1.3rem;
+    }
+
 }

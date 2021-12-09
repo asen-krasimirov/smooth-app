@@ -45,7 +45,7 @@ function JobCard({
 
             <div className="add-info">
                 <p className="time-ago">
-                    {timeDifference < 1 ? <span>From <span className="green-highlight">Today</span></span> : timeDifference + ' days ago'}
+                    {timeDifference < 1 ? <span>from <span className="green-highlight">Today</span></span> : timeDifference + ' days ago'}
                 </p>
                 {/* <p className="applicant-count">
                     3 applicants
