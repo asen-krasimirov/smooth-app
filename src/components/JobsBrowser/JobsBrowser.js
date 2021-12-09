@@ -7,8 +7,10 @@ import useFetch from '../../hooks/useFetch';
 
 import * as jobServices from '../../services/jobServices';
 
+const initialUrl = '/jobs/';
+
 function JobsBrowser() {
-    const [url, setUrl] = useState('/jobs/');
+    const [url, setUrl] = useState(initialUrl);
     const { state: jobsInfo } = useFetch(url, {});
 
     const [curPage, setCurPage] = useState(1);
@@ -25,13 +27,32 @@ function JobsBrowser() {
         setUrl(path);
     };
 
+    const onJobSearch = (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(e.target);
+        const body = Object.fromEntries(formData);
+
+        const { job_title } = validateJobSearchData(body);
+
+        const path = initialUrl + '?job_title=' + job_title;
+        setUrl(path);
+    };
+
+    const validateJobSearchData = (body) => {
+        
+        return {
+            job_title: body.jobTitle
+        };
+    };
+
     return (
         <div className="jobs">
             <section className="jobs-heading">
                 <h2 className="main-title">Jobs</h2>
-                <p className="sub-title">Here you can see all available jobs and see the details for them!</p>
-                <form className="search-form">
-                    <input type="text" placeholder="Job Title" />
+                <p className="sub-title">Here you can see all available jobs and the details for them!</p>
+                <form className="search-form" onSubmit={onJobSearch} >
+                    <input name="jobTitle" placeholder="Job Title" />
                     <button className="btn">Search</button>
                 </form>
             </section>
