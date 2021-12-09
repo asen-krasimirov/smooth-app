@@ -1,8 +1,9 @@
-import { Link } from 'react-router-dom';
+import './Logout.css';
 
+import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import './Logout.css';
+import isAuthenticated from '../../hoc/isAuthenticated';
 
 function Logout() {
     const { clearUserInfo } = useAuthContext();
@@ -18,4 +19,4 @@ function Logout() {
     );
 }
 
-export default Logout;
+export default isAuthenticated(Logout);

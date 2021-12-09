@@ -2,10 +2,11 @@ import './BusinessProfileManager.css';
 
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import useFetch from '../../hooks/useFetch';
 
 import * as userServices from '../../services/userServices';
+
+import isBusinessProfile from '../../hoc/isBusinessProfile';
 
 function BusinessProfileManager() {
     const { profile_id } = useParams();
@@ -133,4 +134,4 @@ function BusinessProfileManager() {
     );
 }
 
-export default BusinessProfileManager;
+export default isBusinessProfile(BusinessProfileManager);

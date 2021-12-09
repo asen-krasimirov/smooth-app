@@ -2,10 +2,11 @@ import './ApplicantProfileManager.css';
 
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-
 import useFetch from '../../hooks/useFetch';
 
 import * as userServices from '../../services/userServices';
+
+import isApplicantProfile from '../../hoc/isApplicantProfile';
 
 function ApplicantProfileManager() {
     const { profile_id } = useParams();
@@ -158,4 +159,4 @@ function ApplicantProfileManager() {
     );
 }
 
-export default ApplicantProfileManager;
+export default isApplicantProfile(ApplicantProfileManager);

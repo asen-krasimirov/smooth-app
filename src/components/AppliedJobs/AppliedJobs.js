@@ -1,10 +1,12 @@
 import './AppliedJobs.css';
+
+import { Link } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
 import { useAuthContext } from '../../contexts/AuthContext';
 
-import { Link } from 'react-router-dom';
-
 import AppliedJobCard from './AppliedJobCard/AppliedJobCard';
+
+import isApplicantProfile from '../../hoc/isApplicantProfile';
 
 function AppliedJobs() {
     const { userInfo } = useAuthContext();
@@ -37,4 +39,4 @@ function AppliedJobs() {
     );
 }
 
-export default AppliedJobs;
+export default isApplicantProfile(AppliedJobs);

@@ -24,8 +24,8 @@ function JobCard({
         <article className="job-card">
             {
                 timeDifference < 1
-                    ? <div class="new-note">
-                        <i class="fas fa-fire-alt" ></i>
+                    ? <div className="new-note">
+                        <i className="fas fa-fire-alt" ></i>
                     </div>
                     : null
             }

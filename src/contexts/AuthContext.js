@@ -12,9 +12,8 @@ export const useAuthContext = () => {
 export function AttachAuthContext({children}) {
 
     const initialUseData = {
-		user_id: null,
-		user_is_business: null,
-		// AUTH_TOKEN: null
+		id: null,
+		is_business: null,
 	};
 
 	const [userInfo, updateUserInfo] = useLocalStorage('user', initialUseData);
@@ -30,7 +29,7 @@ export function AttachAuthContext({children}) {
 		updateAuthToken('');
 	};
 
-    return <AuthContext.Provider value={{ userInfo, changeUserInfo, clearUserInfo, authToken }}>
+    return <AuthContext.Provider value={{ userInfo, changeUserInfo, clearUserInfo, authToken, isAuthenticated: Boolean(userInfo.id) }}>
         {children}
     </AuthContext.Provider>;
 };

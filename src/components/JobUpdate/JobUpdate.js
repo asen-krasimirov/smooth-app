@@ -1,12 +1,12 @@
 import './JobUpdate.css';
 
 import { useState } from 'react';
-
 import { useParams, useNavigate } from 'react-router-dom';
-
 import useFetch from '../../hooks/useFetch';
 
 import * as jobServices from '../../services/jobServices';
+
+import isBusinessProfile from '../../hoc/isBusinessProfile';
 
 function JobUpdate() {
     const { id } = useParams();
@@ -14,7 +14,6 @@ function JobUpdate() {
     const { state: jobDetails } = useFetch('/jobs/' + id, {});
 
     const job = jobDetails.job || {};
-    // console.log('job => ', job);
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
@@ -118,4 +117,4 @@ function JobUpdate() {
     );
 }
 
-export default JobUpdate;
+export default isBusinessProfile(JobUpdate);

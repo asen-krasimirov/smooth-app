@@ -1,18 +1,14 @@
 import './JobCreate.css';
 
 import { useState } from 'react';
-
 import { useNavigate } from 'react-router-dom';
 
 import * as jobServices from '../../services/jobServices';
 
-function JobCreate() {
-    // const { job_id } = useParams();
-    const navigation = useNavigate();
-    // const fetchFunc = job_id ? jobServices.getOne : () => {};
-    // const { state: jobDetails } = useFetch(jobServices.getOne, {});
+import isBusinessProfile from '../../hoc/isBusinessProfile';
 
-    // console.log(jobDetails);
+function JobCreate() {
+    const navigation = useNavigate();
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
@@ -116,4 +112,4 @@ function JobCreate() {
     );
 }
 
-export default JobCreate;
+export default isBusinessProfile(JobCreate);
