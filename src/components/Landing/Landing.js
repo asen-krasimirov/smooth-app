@@ -1,5 +1,7 @@
 import './Landing.css';
 
+import { Link } from 'react-router-dom';
+
 function Landing() {
     return (
         <div className="landing">
@@ -82,7 +84,7 @@ function Landing() {
                     </article>
                 </div>
 
-                <a href="##" className="btn">Create <span className="scale-up">Company</span> Account</a>
+                <Link to={'/sign-up?accountType=business'} className="btn">Create <span className="scale-up">Company</span> Account</Link>
 
             </section>
 
@@ -135,7 +137,7 @@ function Landing() {
                     </article>
                 </div>
 
-                <a href="##" className="btn">Create <span className="scale-up">Applicant</span> Account</a>
+                <Link to={'/sign-up?accountType=applicant'} className="btn">Create <span className="scale-up">Applicant</span> Account</Link>
 
             </section>
 

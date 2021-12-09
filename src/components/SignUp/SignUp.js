@@ -4,6 +4,7 @@ import './SignUp.css';
 
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import useQueryParams from '../../hooks/useQueryParams';
 
 import { useAuthContext } from '../../contexts/AuthContext';
 
@@ -11,8 +12,14 @@ import * as userServices from '../../services/userServices';
 
 function SignUp() {
     const [isFormValid, updateIsFormValid] = useState({ isValid: true, errorMessages: [] });
+
     const navigation = useNavigate();
     const { changeUserInfo } = useAuthContext();
+
+    const params = useQueryParams();
+    const accountType = params.get('accountType');
+
+    const [selectedAccountType, setSelectedAccountType] = useState(accountType ? accountType : 'business');
 
     const handleSignUpForm = e => {
         e.preventDefault();
@@ -48,7 +55,6 @@ function SignUp() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
 
                 } else {
-                    // save user in context api
                     changeUserInfo(responseData);
 
                     let redirectUrl = responseData.user.is_business
@@ -88,6 +94,10 @@ function SignUp() {
         };
     };
 
+    const onRadioChange = (e) => {
+        setSelectedAccountType(e.target.value);
+    };
+
     return (
         <div className="sign-up">
             <section className="generic-section sign-up-section">
@@ -110,17 +120,17 @@ function SignUp() {
                         <input id="repeat-password-input" name="repeatPassword" type="password" placeholder="***************" />
                     </div>
 
-                    <div className="input-holder account-type">
+                    <div className="input-holder account-type" onChange={onRadioChange}>
                         <p className="label-text">Account Type:</p>
 
                         <div className="account-type-input" >
-                            <input type="radio" id="business" name="accountType" defaultValue="business" defaultChecked />
-                            <label htmlFor="business">Business</label>
+                            <input type="radio" id="business" name="accountType" defaultValue="business" defaultChecked={selectedAccountType === 'business'} />
+                            <label htmlFor="business" className={selectedAccountType === 'business' ? 'selected' : ''} >Business</label>
                         </div>
 
                         <div className="account-type-input">
-                            <input type="radio" id="applicant" name="accountType" defaultValue="applicant" />
-                            <label htmlFor="applicant">Applicant</label>
+                            <input type="radio" id="applicant" name="accountType" defaultValue="applicant" defaultChecked={selectedAccountType === 'applicant'}/>
+                            <label htmlFor="applicant" className={selectedAccountType === 'applicant' ? 'selected' : ''} >Applicant</label>
                         </div>
                     </div>
 
