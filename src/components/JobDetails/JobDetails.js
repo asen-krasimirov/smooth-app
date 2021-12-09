@@ -8,7 +8,8 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import * as jobServices from '../../services/jobServices';
 
 import ModalDialog from '../Common/ModalDialog/ModalDialog';
-import Applicants from './Applicants/Applicants';
+// import Applicants from './Applicants/Applicants';
+import Applicants from '../Applicants';
 
 function JobDetails() {
     const { id } = useParams();

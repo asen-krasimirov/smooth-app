@@ -39,7 +39,6 @@ function App() {
 						<Route path="/jobs/:id" element={<JobDetails />} />
 						<Route path="/create-job-post" element={<JobCreate />} />
 						<Route path="/update-job-post/:id" element={<JobUpdate />} />
-						{/* <Route path="/delete-job-post/:id" element={<JobDelete />} /> */}
 
 						<Route path="/sign-up" element={<SignUp />} />
 						<Route path="/sign-in" element={<SignIn />} />
