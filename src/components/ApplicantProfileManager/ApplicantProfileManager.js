@@ -32,11 +32,11 @@ function ApplicantProfileManager() {
 
                     try {
                         Object.values(responseData).forEach(
-                                messages => messages.forEach(
-                                    message => newErrorMessages.push(message)
-                                )
+                            messages => messages.forEach(
+                                message => newErrorMessages.push(message)
+                            )
                         );
-                    } catch(error) {
+                    } catch (error) {
                         newErrorMessages = Object.values(responseData);
                     }
 
@@ -60,6 +60,8 @@ function ApplicantProfileManager() {
             education: body.education,
             skills: body.skills,
             applicant_blog: body.applicantBlog,
+            phone_number: body.phoneNumber,
+            preferred_position: body.preferredPosition,
         };
     };
     return (
@@ -120,11 +122,21 @@ function ApplicantProfileManager() {
                     </div>
 
                     <div className="input-holder">
+                        <label htmlFor="phone-number-input">Phone Number:</label>
+                        <input id="phone-number-input" name="phoneNumber" placeholder="Phone number for contact..." defaultValue={profileData.phone_number} />
+                    </div>
+
+                    <div className="input-holder">
+                        <label htmlFor="preferred-position-input">Preferred Position:</label>
+                        <input id="preferred-position-input" name="preferredPosition" placeholder="Wanted position ex.: Web Dev., Horse Keeper..." defaultValue={profileData.preferred_position} />
+                    </div>
+
+                    <div className="input-holder">
                         <label htmlFor="applicant-blog-input">Personal Website:</label>
                         <input id="applicant-blog-input" type="url" name="applicantBlog" placeholder="https://example.com"
                             pattern="https://.*" defaultValue={profileData.applicant_blog} />
                     </div>
-                    
+
                     {
                         !isFormValid.isValid
                             ? <ul className="error-list">

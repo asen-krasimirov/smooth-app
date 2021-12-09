@@ -86,6 +86,11 @@ section.applicant-profile {
     margin: 3% auto;
 }
 
+.applicant-card .preferred-position-info {
+    margin-top: 50px;
+    font-size: 2.5rem;
+}
+
 .applicant-card .main-info {
     margin: 50px auto;
     padding: 0 50px;

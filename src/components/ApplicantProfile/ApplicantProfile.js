@@ -42,10 +42,10 @@ function ApplicantProfile() {
                         {
                             String(userInfo.id) === profile_id
                                 ? <div className="managment-btns">
-                                    <a href="##" className="btn edit-btn">
+                                    <Link to="/applied-jobs" className="btn edit-btn">
                                         <i className="fas fa-tasks"></i>
                                         Manage Applied Jobs
-                                    </a>
+                                    </Link>
                                     <Link to={'/applicant-profile-manage/' + profile_id} className="btn edit-btn">
                                         <i className="far fa-edit"></i>
                                         Edit Profile
@@ -55,13 +55,17 @@ function ApplicantProfile() {
                         }
 
                     </div>
+                    
+                    <div className="preferred-position-info">
+                        Preferred Position: {profileData.preferred_position ? profileData.preferred_position : 'Not Selected'}
+                    </div>
 
                     <div className="main-info">
                         {profileData.about_info}
                     </div>
 
                     <div className="contact-info">
-                        You can visit the applicants's website <a href={profileData.applicant_blog}>here</a>. Contact Number: <span className="number">+356876071005</span> Email: <span className="email">qnko_v_tqh@gmail.com</span>
+                        You can visit the applicants's website <a href={profileData.applicant_blog}>here</a>. Contact Number: <span className="number">{profileData.phone_number ? profileData.phone_number : 'Not Provided'}</span> Email: <span className="email">{profileData.email}</span>
                     </div>
 
                     {
