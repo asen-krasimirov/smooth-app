@@ -105,9 +105,9 @@ function JobDetails() {
                                     <p className="time-ago">
                                         <span className="head">Posted:</span> 1 day ago
                                     </p>
-                                    <p className="applicant-count">
+                                    {/* <p className="applicant-count">
                                         <span className="head">Applicants:</span> 3
-                                    </p>
+                                    </p> */}
                                     <p className="job-type">
                                         <span className="head">Job Type:</span> { job.type === 'FT' ? 'Full Time' : 'Part Time' }
                                     </p>

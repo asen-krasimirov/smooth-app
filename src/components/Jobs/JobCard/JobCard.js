@@ -1,15 +1,35 @@
+import './JobCard.css';
+
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 function JobCard({
     jobInfo,
     profileInfo
 }) {
+    const [timeDifference, setTimeDifference] = useState(0);
 
-    // console.log(jobInfo);
-    // console.log(profileInfo);
+    useEffect(() => {
+        const calcTimeDifference = () => {
+            let timeDifference = new Date().getTime() - new Date(jobInfo.posted_date);
+            timeDifference = timeDifference / (1000 * 3600 * 24);
+
+            return timeDifference;
+        };
+
+        setTimeDifference(calcTimeDifference());
+    }, [jobInfo.posted_date]);
 
     return (
         <article className="job-card">
+            {
+                timeDifference < 1
+                    ? <div class="new-note">
+                        <i class="fas fa-fire-alt" ></i>
+                    </div>
+                    : null
+            }
+
             <div className="image-holder">
                 <img className="company-image" src={profileInfo.icon_image ? profileInfo.icon_image : './static/images/default-company-logo.jpg'} alt="company-logo" />
             </div>
@@ -25,7 +45,7 @@ function JobCard({
 
             <div className="add-info">
                 <p className="time-ago">
-                    1 day ago
+                    {timeDifference < 1 ? <span>From <span className="green-highlight">Today</span></span> : timeDifference + ' days ago'}
                 </p>
                 {/* <p className="applicant-count">
                     3 applicants
