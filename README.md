@@ -47,12 +47,9 @@ There are three types of accounts:
 
 ### User Privilages:
 #### Not Authenticated (Public Part)
-* Guests
-These users are able to browse the posted job offers, view their details and view creator's profiles.
+* Guests- These users are able to browse the posted job offers, view their details and view creator's profiles.
 #### Authenticated (Private Part)
-* Business Accounts
-These users have all the privileges of the guest users plus having the ability to create their own jobs posts.<br>
+* Business Accounts- These users have all the privileges of the guest users plus having the ability to create their own jobs posts.<br>
 Users with business accounts create jobs posts (as well as edit and delete them) and view who has applied to them.
-* Applicant Accounts
-These users have all the privileges of the guest users plus having the ability to apply to job posts.<br>
+* Applicant Accounts- These users have all the privileges of the guest users plus having the ability to apply to job posts.<br>
 They can browser all available jobs, pick the best for them and apply. They can also see a list of all the jobs they have applied to.
