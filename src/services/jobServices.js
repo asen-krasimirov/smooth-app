@@ -1,24 +1,13 @@
 /* eslint-disable curly */
 import { makeRequest } from './services';
 
-// const HOST = 'https://smooth-app-api.herokuapp.com';
-const HOST = 'http://127.0.0.1:8000';
+const HOST = 'https://smooth-app-api.herokuapp.com';
+// const HOST = 'http://127.0.0.1:8000';
 
 const pathMap = {
     'jobs': HOST + '/jobs',
     'applied_jobs': HOST + '/jobs/applied',
 };
-
-// export const getAll = () => {
-//     let url = pathMap['jobs'];
-
-//     return makeRequest(url, 'GET');
-// };
-
-// export const getOne = (id) => {
-//     let url = pathMap['jobs'] + '/' + id;
-//     return makeRequest(url, 'POST');
-// };
 
 export const mapJobsWithProfiles = (jobsInfo) => {
     const jobs = [];
@@ -62,7 +51,6 @@ export const applyToJob = (job_id) => {
 
 export const unApplyToJob = (job_id) => {
     let url = pathMap['applied_jobs'] + '/' + job_id;
-    // const headers ={ 'Content-Type': 'application/json' };
 
     return makeRequest(url, 'DELETE', {}, {}, true);
 };

@@ -31,7 +31,7 @@ function Landing() {
                     for work.
                 </p>
 
-                <a href="##" className="btn">More Application Info</a>
+                <a href="https://github.com/asen-krasimirov/smooth-app" className="btn">More Application Info</a>
 
             </section>
 
