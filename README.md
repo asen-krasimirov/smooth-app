@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Smooth
+"Smooth" is a React Application in which you can create job posts as a company or look for job opportunities as an applicant.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Purpose
+I made this project as part of Softuni's course "ReactJS - November 2021". For the making of this project I used Django Rest Framework for the back-end of the application and I utilized the knowledge I gained during the course for the front-end. In this project I used techniques like react hooks, contexts, components, front-end routing and many more.
 
-## Available Scripts
+### Backend Repository:
+The GitHub repository of the back-end is here: https://github.com/asen-krasimirov/smooth-app-api
 
-In the project directory, you can run:
+### Deployed to:
+The application is deployed on Firebase here- https://smooth-ec517.web.app/
 
-### `npm start`
+### Technologies used:
+* Python 
+* Django
+* Javascript
+* React
+* React-Router
+* HTML
+* CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Project Description
+### Dynamic Pages
+This app has 8 dynamic pages:
+#### * Jobs Browser (Catalog)
+#### * Job Details (Details)
+#### * Job Update
+#### * Applicant Profiles
+#### * Business Profiles
+#### * Applicant Profiles Update
+#### * Business Profiles Update
+#### * Applied Jobs (For Applicant Accoutns)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Data Collections
+#### * Job Collection (Main Collection)
+#### * AppliedJobs Collection (For Applicant Accounts)
+#### * User Collection (Using Custom Django User)
+#### * ApplicantProfile Collection (Profiles for Applicant Accounts)
+#### * BusinessProfile Collection (Profiles for Business Accounts)
 
-### `npm test`
+### Authentication
+This app supports two account types, both having unique functionalities.
+There are three types of accounts:
+* Guests
+* Business Accounts
+* Applican Accounts
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### User Privilages:
+#### Not Authenticated (Public Part)
+* Guests
+These users are able to browse the posted job offers, view their details and view creator's profiles.
+#### Authenticated (Private Part)
+* Business Accounts
+These users have all the privileges of the guest users plus having the ability to create their own jobs posts.<br>
+Users with business accounts create jobs posts (as well as edit and delete them) and view who has applied to them.
+* Applicant Accounts
+These users have all the privileges of the guest users plus having the ability to apply to job posts.<br>
+They can browser all available jobs, pick the best for them and apply. They can also see a list of all the jobs they have applied to.
