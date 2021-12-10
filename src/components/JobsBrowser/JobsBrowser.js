@@ -52,7 +52,7 @@ function JobsBrowser() {
                 <h2 className="main-title">Jobs</h2>
                 <p className="sub-title">Here you can see all available jobs and the details for them!</p>
                 <form className="search-form" onSubmit={onJobSearch} >
-                    <input name="jobTitle" placeholder="Job Title" />
+                    <input name="jobTitle" placeholder="Job Title" autoComplete="off" />
                     <button className="btn">Search</button>
                 </form>
             </section>

@@ -53,7 +53,7 @@ function SignIn() {
 
                     <div className="input-holder">
                         <label htmlFor="email-input">Email:</label>
-                        <input id="email-input" name="email" type="email" placeholder="example@email.com" />
+                        <input id="email-input" name="email" type="email" placeholder="example@email.com" autoComplete="off" />
                     </div>
 
                     <div className="input-holder">

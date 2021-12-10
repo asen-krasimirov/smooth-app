@@ -44,3 +44,35 @@
 .job-create-section .job-create-form .btn {
     margin-top: 20px;
 }
+
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .job-create-section > h3 {
+        margin-bottom: 0;
+        margin: 10px;
+    }
+
+    .job-create-section .job-create-form label {
+        margin: 10px 0;
+    }
+
+    .job-create-section .job-create-form {
+        width: 120%;
+    }
+
+    .job-create-section .job-create-form .input-holder {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .job-create-section .job-create-form textarea {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .job-create-section .job-create-form select {
+        width: 100%;
+        text-align: center;
+    }
+}

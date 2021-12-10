@@ -39,3 +39,35 @@
 .business-profile-manage-section .business-profile-manage-form .btn {
     margin-top: 20px;
 }
+
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .business-profile-manage-section > h3 {
+        margin-bottom: 0;
+        margin: 10px;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form label {
+        margin: 10px 0;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form {
+        width: 120%;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form .input-holder {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form textarea {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form select {
+        width: 100%;
+        text-align: center;
+    }
+}

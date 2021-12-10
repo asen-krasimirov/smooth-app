@@ -56,7 +56,16 @@
         flex-direction: column;
     }
 
+    .sign-in-section .sign-in-form .input-holder label {
+        margin: 10px 0;
+    }
+
+    .sign-in-section .sign-in-form .input-holder input {
+        font-size: 2rem;
+    }
+    
     .sign-up-section .sign-up-form input {
+        /* font-size: 1.4rem; */
         text-align: center;
     }
 }

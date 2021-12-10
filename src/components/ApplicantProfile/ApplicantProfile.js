@@ -18,7 +18,6 @@ function ApplicantProfile() {
     };
 
     return (
-
         <div className="applicant-profile">
             <section className="generic-section applicant-profile">
                 <article className="applicant-card">
@@ -42,7 +41,7 @@ function ApplicantProfile() {
                         {
                             String(userInfo.id) === profile_id
                                 ? <div className="managment-btns">
-                                    <Link to="/applied-jobs" className="btn edit-btn">
+                                    <Link to="/applied-jobs" className="btn applied-jobs-btn">
                                         <i className="fas fa-tasks"></i>
                                         Manage Applied Jobs
                                     </Link>
@@ -65,7 +64,9 @@ function ApplicantProfile() {
                     </div>
 
                     <div className="contact-info">
-                        You can visit the applicants's website <a href={profileData.applicant_blog}>here</a>. Contact Number: <span className="number">{profileData.phone_number ? profileData.phone_number : 'Not Provided'}</span> Email: <span className="email">{profileData.email}</span>
+                        <div className="contact-unit">You can visit the applicants's website <a href={profileData.applicant_blog}>here</a>.</div>
+                        <div className="contact-unit">Contact Number: <span className="number">{profileData.phone_number ? profileData.phone_number : 'Not Provided'}</span></div>
+                        <div className="contact-unit">Email: <span className="email">{profileData.email}</span></div>
                     </div>
 
                     {

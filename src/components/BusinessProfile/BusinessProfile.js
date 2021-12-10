@@ -82,7 +82,9 @@ function BusinessProfile() {
                     </div>
 
                     <div className="contact-info">
-                        You can visit the company's official website <a href={profileData.business_website}>here</a>. Contact Number: <span className="number">+356876071006</span> Email: <span className="email">qnko_group_v_tqh@gmail.com</span>
+                        <div className="contact-unit">You can visit the company's official website <a href={profileData.business_website}>here</a>.</div>
+                        {/* <div className="contact-unit"> Contact Number: <span className="number">+356876071006</span></div>
+                        <div className="contact-unit"> Email: <span className="email">qnko_group_v_tqh@gmail.com</span></div> */}
                     </div>
 
                     {

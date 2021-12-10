@@ -102,3 +102,46 @@ section.job-details {
 .job-card .management-btns a {
     margin-right: 10px;
 }
+
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .job-card .job-heading {
+        flex-direction: column;
+    }
+
+    .job-card .add-info {
+        flex-direction: column;
+    }
+
+    .job-card .add-info p {
+        margin: 10px 0;
+    }
+
+    .job-card .image-holder {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .job-card .management-btns a,
+    .job-card .management-btns button {
+        font-size: 1.5rem;
+        flex-basis: 50%;
+    }
+
+    .applied-applicant-card {
+        width: 100%;
+    }
+
+    .applied-applicant-card .number-count {
+        margin: 0 10px;
+    }
+
+    .applied-applicant-card .applicant-name {
+        margin: 0 10px;
+    }
+
+    .btn.applied-profile-link {
+        font-size: 1rem;
+    }
+}

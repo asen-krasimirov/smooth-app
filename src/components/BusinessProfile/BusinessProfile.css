@@ -104,3 +104,45 @@ section.business-profile {
 .business-card .contact-info span {
     color: #FF6600;
 }
+
+.business-card .contact-unit {
+    display: inline;
+}
+
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .business-card .image-holder {
+        width: 155px;
+        height: 155px;
+    }
+    
+    .business-card .image-holder .company-image {
+        max-width: 150px;
+    }
+
+    .business-card .contact-unit {
+        display: inline-block;
+        margin: 2px 0;
+    }
+
+    .business-card .business-name .name {
+        font-size: 1.5rem;
+    }
+    
+    .business-card .business-name .sub-name {
+        font-size: 0.8rem;
+    }
+    
+    .business-card .business-heading .managment-btns {
+        margin: 10px 0;
+
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .business-card .business-heading .managment-btns a {
+        font-size: 1rem;
+    }
+}

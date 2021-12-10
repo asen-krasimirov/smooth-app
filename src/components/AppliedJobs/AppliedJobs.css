@@ -23,3 +23,29 @@
 .no-applied-jobs a {
     color: #FF6600;
 }
+
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .applied-jobs-title {
+        font-size: 3rem;
+    }
+
+    .applied-jobs-sub-title {
+        font-size: 1rem;
+    }
+    
+    .applied-job .applied-job-title {
+        font-size: 1.5rem;
+    }
+
+    .applied-job h3.number-count {
+        margin: 0 10px;
+        font-size: 2rem;
+    }
+
+    .applied-job a.applied-details-link {
+        margin: 0 10px;
+        font-size: 1.5rem;
+    }
+}

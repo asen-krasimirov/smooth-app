@@ -136,3 +136,59 @@ section.applicant-profile {
     font-size: 2rem;
     list-style-type: '→ ';
 }
+
+.applicant-card .contact-unit {
+    display: inline;
+}
+
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .applicant-card .image-holder {
+        width: 155px;
+        height: 155px;
+    }
+    
+    .applicant-card .image-holder .applicant-image {
+        max-width: 150px;
+    }
+
+    .applicant-card .contact-unit {
+        display: inline-block;
+        margin: 2px 0;
+    }
+
+    .applicant-card .applicant-name .name {
+        font-size: 1.5rem;
+    }
+    
+    .applicant-card .applicant-heading .managment-btns {
+        margin: 10px 0;
+
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .applicant-card .applicant-heading .managment-btns a {
+        font-size: 1rem;
+    }
+    
+    .applicant-card .applicant-heading .managment-btns a.applied-jobs-btn {
+        display: none;
+    }
+
+    .applicant-card .preferred-position-info {
+        font-size: 1.5rem;
+    }
+    
+    .skills-section .section-heading,
+    .education-section .section-heading {
+        font-size: 2.5rem;
+    }
+
+    .skills-section .add-info .more-add-info,
+    .education-section .add-info .more-add-info {
+        font-size: 0.8rem;
+    }
+}

@@ -44,3 +44,34 @@
 .job-update-section .job-update-form .btn {
     margin-top: 20px;
 }
+/* responsive-css */
+
+@media all and (max-width: 600px ) {
+    .job-update-section > h3 {
+        margin-bottom: 0;
+        margin: 10px;
+    }
+
+    .job-update-section .job-update-form label {
+        margin: 10px 0;
+    }
+
+    .job-update-section .job-update-form {
+        width: 120%;
+    }
+
+    .job-update-section .job-update-form .input-holder {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .job-update-section .job-update-form textarea {
+        width: 100%;
+        flex-basis: auto;
+    }
+
+    .job-update-section .job-update-form select {
+        width: 100%;
+        text-align: center;
+    }
+}
