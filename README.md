@@ -1,5 +1,5 @@
 # Smooth
-"Smooth" is a React Application in which you can create job posts as a company or look for job opportunities as an applicant.
+"Smooth" is a React Application in which you can create job posts as a <b>Company</b> or look for job opportunities as an <b>Applicant</b>.
 
 ## Purpose
 I made this project as part of Softuni's course "ReactJS - November 2021". For the making of this project I used Django Rest Framework for the back-end of the application and I utilized the knowledge I gained during the course for the front-end. In this project I used techniques like react hooks, contexts, components, front-end routing and many more.
