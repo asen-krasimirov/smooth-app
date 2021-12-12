@@ -1,24 +1,26 @@
 import './JobCard.css';
 
-import { useState, useEffect } from 'react';
+// import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import useJobPostedDate from '../../../hooks/useJobPostedDate';
 
 function JobCard({
     jobInfo,
     profileInfo
 }) {
-    const [timeDifference, setTimeDifference] = useState(0);
+    // const [timeDifference, setTimeDifference] = useState(0);
+    const timeDifference = useJobPostedDate(jobInfo.posted_date);
 
-    useEffect(() => {
-        const calcTimeDifference = () => {
-            let timeDifference = new Date().getTime() - new Date(jobInfo.posted_date);
-            timeDifference = timeDifference / (1000 * 3600 * 24);
+    // useEffect(() => {
+    //     const calcTimeDifference = () => {
+    //         let timeDifference = new Date().getTime() - new Date(jobInfo.posted_date);
+    //         timeDifference = timeDifference / (1000 * 3600 * 24);
 
-            return timeDifference;
-        };
+    //         return timeDifference;
+    //     };
 
-        setTimeDifference(calcTimeDifference());
-    }, [jobInfo.posted_date]);
+    //     setTimeDifference(calcTimeDifference());
+    // }, [jobInfo.posted_date]);
 
     return (
         <article className="job-card">

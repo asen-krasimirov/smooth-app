@@ -3,6 +3,7 @@ import './JobDetails.css';
 import { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import useJobPostedDate from '../../hooks/useJobPostedDate';
 import { useAuthContext } from '../../contexts/AuthContext';
 
 import * as jobServices from '../../services/jobServices';
@@ -16,11 +17,14 @@ function JobDetails() {
     const { userInfo } = useAuthContext();
 
     const { state: jobInfo } = useFetch('/jobs/' + id, {}, id);
+
     const { state: jobAppliedInfo } = useFetch('/jobs/applied/' + id + '/?user_id=' + userInfo.id, {});
     const { state: applicantsData } = useFetch('/jobs/' + id + '/applicants', []);
     
     const { applicants } = applicantsData;
     const { job, profile } = jobInfo;
+
+    const timeDifference = useJobPostedDate(job ? job.posted_date : 0);
 
     const [showDelModal, setShowDelModal] = useState(false);
 
@@ -103,7 +107,7 @@ function JobDetails() {
 
                                 <div className="add-info">
                                     <p className="time-ago">
-                                        <span className="head">Posted:</span> 1 day ago
+                                        <span className="head">Posted:</span> {timeDifference < 1 ? 1 : Math.floor(timeDifference)} days ago
                                     </p>
                                     {/* <p className="applicant-count">
                                         <span className="head">Applicants:</span> 3
