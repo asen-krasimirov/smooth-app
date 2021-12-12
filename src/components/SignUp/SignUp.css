@@ -70,14 +70,22 @@
     }
     
     .sign-up-section .sign-up-form .input-holder input {
-        font-size: 2rem;
+        width: 95%;
+        font-size: 1.5rem;
+        text-align: center;
     }
 
     .sign-up-section .sign-up-form label {
         margin: 10px 0;
+        text-align: center;
     }
 
     .sign-in-section .sign-in-form input {
         text-align: center;
+    }
+
+    .sign-up-section .sign-up-form .input-holder input#business, 
+    .sign-up-section .sign-up-form .input-holder input#applicant {
+        width: auto;
     }
 }

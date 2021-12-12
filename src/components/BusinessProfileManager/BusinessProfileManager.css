@@ -62,12 +62,22 @@
     }
 
     .business-profile-manage-section .business-profile-manage-form textarea {
-        width: 100%;
+        width: 90%;
         flex-basis: auto;
+        font-size: 1rem;
     }
 
     .business-profile-manage-section .business-profile-manage-form select {
         width: 100%;
         text-align: center;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form input, 
+    .business-profile-manage-section .business-profile-manage-form label {
+        font-size: 1.5rem;
+    }
+
+    .business-profile-manage-section .business-profile-manage-form input {
+        width: 100%;
     }
 }

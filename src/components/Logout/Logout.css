@@ -12,7 +12,11 @@
 
 @media all and (max-width: 600px ) {
     .logout .logout-title {
-        font-size: 2.5rem;
+        font-size: 1.5rem;
        text-align: center;
+    }
+
+    .logout .option-btns .btn {
+        font-size: 1.5rem;
     }
 }

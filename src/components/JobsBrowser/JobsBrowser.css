@@ -28,11 +28,12 @@
 
 @media all and (max-width: 600px) {
     .jobs-heading {
+        width: 100%;
         font-size: 2.3rem;
     }
 
     .jobs-heading .search-form input, 
     .jobs-heading .search-form button {
-        font-size: 1.5rem;
+        font-size: 1rem;
     }
 }
