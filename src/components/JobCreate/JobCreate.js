@@ -1,3 +1,4 @@
+/* eslint-disable curly */
 import './JobCreate.css';
 
 import { useState } from 'react';
@@ -23,6 +24,8 @@ function JobCreate() {
 
         body = validateJobManageForm(body);
 
+        if (!body) return;
+
         jobServices.createJob(body)
             .then(responseData => {
                 if (responseData['error_message']) {
@@ -40,7 +43,7 @@ function JobCreate() {
 
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 } else {
-                    navigation('/jobs/' + responseData.id); // TODO: change to job page
+                    navigation('/jobs/' + responseData.id);
                 };
 
             });
@@ -48,6 +51,15 @@ function JobCreate() {
     };
 
     const validateJobManageForm = (body) => {
+        if (body.description.length > 2500) {
+            updateIsFormValid(oldState => {
+                return {
+                    isValid: false,
+                    errorMessages: [...oldState.errorMessages, 'The max description length is 2500 characters!']
+                };
+            });
+            return;
+        }
 
         return {
             title: body.title,

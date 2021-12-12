@@ -1,3 +1,4 @@
+/* eslint-disable curly */
 import './JobUpdate.css';
 
 import { useState } from 'react';
@@ -28,6 +29,8 @@ function JobUpdate() {
 
         body = validateJobManageForm(body);
 
+        if (!body) return;
+
         jobServices.updateJob(id, body)
             .then(responseData => {
                 if (responseData['error_message']) {
@@ -53,7 +56,16 @@ function JobUpdate() {
     };
 
     const validateJobManageForm = (body) => {
-
+        if (body.description.length > 2500) {
+            updateIsFormValid(oldState => {
+                return {
+                    isValid: false,
+                    errorMessages: [...oldState.errorMessages, 'The max description length is 2500 characters!']
+                };
+            });
+            return;
+        }
+        
         return {
             title: body.title,
             description: body.description,

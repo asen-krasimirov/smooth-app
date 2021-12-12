@@ -73,18 +73,20 @@ function SignUp() {
             updateIsFormValid(oldState => {
                 return {
                     isValid: false,
-                    errorMessages: oldState.errorMessages.concat(['The two passwords should be the same!'])
+                    errorMessages: [...oldState.errorMessages, 'The two passwords should be the same!']
                 };
             });
+            return;
         };
 
         if (!['business', 'applicant'].includes(accountType)) {
             updateIsFormValid(oldState => {
                 return {
                     isValid: false,
-                    errorMessages: oldState.errorMessages.concat(['The account type should be one of the displayed!'])
+                    errorMessages: [...oldState.errorMessages, 'The account type should be one of the displayed!']
                 };
             });
+            return;
         };
 
         return {
