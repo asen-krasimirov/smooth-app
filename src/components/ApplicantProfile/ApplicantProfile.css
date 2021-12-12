@@ -211,4 +211,9 @@ section.applicant-profile {
     .education-section .add-info .more-add-info {
         font-size: 0.8rem;
     }
+
+    .skills-section .skill-list li,
+    .education-section .education-list li {
+        font-size: 1.4rem;
+    }
 }
