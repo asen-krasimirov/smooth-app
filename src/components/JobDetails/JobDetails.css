@@ -52,6 +52,7 @@ section.job-details {
 
 .job-card .image-holder .job-image {
     max-width: 200px;
+    max-height: 200px;
     border-radius: 30%;
 }
 
@@ -125,11 +126,12 @@ section.job-details {
 
     .job-card .management-btns a,
     .job-card .management-btns button {
-        font-size: 1.5rem;
         flex-basis: 50%;
+        padding: 10px 20px;
+        font-size: 1.5rem;
     }
 
-    .applied-applicant-card {
+    /* .applied-applicant-card {
         width: 100%;
     }
 
@@ -143,5 +145,5 @@ section.job-details {
 
     .btn.applied-profile-link {
         font-size: 1rem;
-    }
+    } */
 }

@@ -72,7 +72,8 @@ section.applicant-profile {
 }
 
 .applicant-card .image-holder .applicant-image {
-    max-width: 170px;  /* was 200px */
+    max-width: 170px;
+    max-height: 170px;
     border-radius: 50%;
 }
 
@@ -151,6 +152,7 @@ section.applicant-profile {
     
     .applicant-card .image-holder .applicant-image {
         max-width: 150px;
+        max-height: 150px;
     }
 
     .applicant-card .contact-unit {

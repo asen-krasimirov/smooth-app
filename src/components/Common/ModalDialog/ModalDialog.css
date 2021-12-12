@@ -28,3 +28,17 @@
     margin: 50px;
     width: 100px;
 }
+
+@media all and (max-width: 600px) {
+    .modal-wrapper {
+        top: 100%;
+    }
+
+    .modal-btn {
+        margin: auto 10px;
+    }
+
+    .modal-message {
+        font-size: 1.5rem;
+    }
+}

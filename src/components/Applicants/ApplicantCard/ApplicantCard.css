@@ -26,6 +26,7 @@
 
 .applied-applicant-info .applicant-icon {
     max-width: 80px;
+    max-height: 80px;
     border-radius: 50%;
 }
 
@@ -52,4 +53,33 @@
 .btn.applied-profile-link {
     margin-top: 0;
     font-size: 1.5rem;
+}
+
+@media all and (max-width: 600px ) {
+    .applied-applicant-card {
+        width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .applied-applicant-card .number-count {
+        margin: 0 5px;
+        font-size: 2rem;
+    }
+
+    .applied-applicant-info .applicant-icon {
+        max-width: 50px;
+        max-height: 50px;
+    }
+
+    .applied-applicant-card .applicant-name {
+        margin: 0 10px;
+        font-size: 1.5rem;
+    }
+
+    .applied-applicant-card .btn.applied-profile-link {
+        margin-right: 5px;
+        padding: 10px 5px;
+        font-size: 1.3rem;
+    }
 }
