@@ -130,20 +130,9 @@ section.job-details {
         padding: 10px 20px;
         font-size: 1.5rem;
     }
-
-    /* .applied-applicant-card {
-        width: 100%;
+    
+    .job-card .main-info {
+        padding: 0 10px;
+        font-size: 1.4rem;
     }
-
-    .applied-applicant-card .number-count {
-        margin: 0 10px;
-    }
-
-    .applied-applicant-card .applicant-name {
-        margin: 0 10px;
-    }
-
-    .btn.applied-profile-link {
-        font-size: 1rem;
-    } */
 }

@@ -136,6 +136,11 @@ section.business-profile {
         font-size: 0.8rem;
     }
     
+    .business-card .main-info {
+        padding: 0 10px;
+        font-size: 1.4rem;
+    }
+
     .business-card .business-heading .managment-btns {
         margin: 10px 0;
 
