@@ -75,4 +75,21 @@
         width: 100%;
         text-align: center;
     }
+
+    .job-create-section .job-create-form .input-holder input {
+        width: 95%;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .job-create-section .job-create-form textarea {
+        width: 90%;
+        flex-basis: auto;
+        font-size: 1rem;
+    }
+
+    .job-create-section .job-create-form input, 
+    .job-create-section .job-create-form label {
+        font-size: 1.5rem;
+    }
 }
