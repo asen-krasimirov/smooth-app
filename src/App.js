@@ -6,6 +6,7 @@ import { AttachAuthContext } from './contexts/AuthContext';
 
 import Header from './components/Header';
 import Landing from './components/Landing';
+import ScrollReseter from './components/Common/ScrollReseter';
 
 import JobsBrowser from './components/JobsBrowser';
 import JobDetails from './components/JobDetails';
@@ -28,13 +29,13 @@ function App() {
 
 	return (
 		<AttachAuthContext>
-			<>
-				<Header />
+			<Header />
+			<ScrollReseter>
 
 				<main className="content-container">
 					<Routes>
 						<Route path="/" element={<Landing />} />
-						
+
 						<Route path="/jobs" element={<JobsBrowser />} />
 						<Route path="/jobs/:id" element={<JobDetails />} />
 						<Route path="/create-job-post" element={<JobCreate />} />
@@ -51,18 +52,19 @@ function App() {
 						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
 
 						<Route path="/applied-jobs" element={<AppliedJobs />} />
-						
+
 					</Routes>
 				</main>
+			</ScrollReseter>
 
-				<button id="buttonToTop" className="btn">
-					<i className="fas fa-arrow-up"></i>
-				</button>
 
-				<footer className="main-footer">
-					Asen Krasimirov &copy; All Rights Received
-				</footer>
-			</>
+			<button id="buttonToTop" className="btn">
+				<i className="fas fa-arrow-up"></i>
+			</button>
+
+			<footer className="main-footer">
+				Asen Krasimirov &copy; All Rights Received
+			</footer>
 		</AttachAuthContext>
 	);
 }
