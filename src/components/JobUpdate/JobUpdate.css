@@ -74,4 +74,22 @@
         width: 100%;
         text-align: center;
     }
+
+    
+    .job-update-section .job-update-form .input-holder input {
+        width: 95%;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .job-update-section .job-update-form textarea {
+        width: 90%;
+        flex-basis: auto;
+        font-size: 1rem;
+    }
+
+    .job-update-section .job-update-form input, 
+    .job-update-section .job-update-form label {
+        font-size: 1.5rem;
+    }
 }

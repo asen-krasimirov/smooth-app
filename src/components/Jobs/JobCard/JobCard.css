@@ -53,6 +53,7 @@
 
 .job-holder .job-card .job-title .offered-by {
     font-size: 1rem;
+    text-align: center;
 }
 
 .job-holder .job-card .job-title .offered-by a {
@@ -110,6 +111,11 @@
 
     .job-holder .job-card .job-title .title {
         font-size: 1.5rem;
+    }
+
+    .job-holder .job-card .new-note i {
+        margin: 0 20px;
+        font-size: 2rem;
     }
     
 }

@@ -370,11 +370,15 @@
     }
 
     .landing .heading .text-holder h2 {
-        font-size: 3rem;
+        font-size: 2rem;
     }
 
     .landing .heading .image-holder img {
         max-width: 400px;
+    }
+    
+    .about-reference {
+        padding: 15px;
     }
 
     .btn .scale-up {
@@ -396,9 +400,4 @@
     .main-footer {
         padding-bottom: 10%;
     }
-
-    /* .main-header nav ul {
-        align-items: center;
-        font-size: 1.5rem;
-    } */
 }
