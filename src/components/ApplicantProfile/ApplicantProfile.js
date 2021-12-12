@@ -56,7 +56,7 @@ function ApplicantProfile() {
                     </div>
                     
                     <div className="preferred-position-info">
-                        Preferred Position: {profileData.preferred_position ? profileData.preferred_position : 'Not Selected'}
+                        <span className="highlighted">Preferred Position:</span> {profileData.preferred_position ? profileData.preferred_position : 'Not Selected'}
                     </div>
 
                     <div className="main-info">

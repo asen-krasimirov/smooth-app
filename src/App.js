@@ -57,7 +57,6 @@ function App() {
 				</main>
 			</ScrollReseter>
 
-
 			<button id="buttonToTop" className="btn">
 				<i className="fas fa-arrow-up"></i>
 			</button>

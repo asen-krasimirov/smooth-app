@@ -92,6 +92,10 @@ section.applicant-profile {
     font-size: 2.5rem;
 }
 
+.applicant-card .preferred-position-info .highlighted {
+    color: #FF6600;
+}
+
 .applicant-card .main-info {
     margin: 50px auto;
     padding: 0 50px;
@@ -157,7 +161,12 @@ section.applicant-profile {
 
     .applicant-card .contact-unit {
         display: inline-block;
-        margin: 2px 0;
+        margin: 5px 0;
+    }
+
+    .applicant-card .contact-unit .email, 
+    .applicant-card .contact-unit .number {
+        display: block;
     }
 
     .applicant-card .applicant-name .name {
@@ -183,7 +192,16 @@ section.applicant-profile {
     .applicant-card .preferred-position-info {
         font-size: 1.5rem;
     }
+
+    .applicant-card .preferred-position-info .highlighted {
+        display: block;
+    }
     
+    .applicant-card .main-info {
+        padding: 0 10px;
+        font-size: 1.4rem;
+    }
+
     .skills-section .section-heading,
     .education-section .section-heading {
         font-size: 2.5rem;
