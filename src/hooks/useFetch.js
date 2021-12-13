@@ -1,7 +1,5 @@
+import { HOST } from '../utils/vars';
 import { useState, useEffect } from 'react';
-
-const HOST = 'https://smooth-app-api.herokuapp.com';
-// const HOST = 'http://127.0.0.1:8000';
 
 const useFetch = (path, defaultValue) => {
     const [state, updateState] = useState(defaultValue);
