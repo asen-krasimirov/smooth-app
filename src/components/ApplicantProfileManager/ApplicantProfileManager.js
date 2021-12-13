@@ -3,6 +3,7 @@ import './ApplicantProfileManager.css';
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import useFetch from '../../hooks/useFetch';
+import { useAuthContext } from '../../contexts/AuthContext';
 
 import * as userServices from '../../services/userServices';
 
@@ -11,7 +12,10 @@ import isApplicantProfile from '../../hoc/isApplicantProfile';
 function ApplicantProfileManager() {
     const { profile_id } = useParams();
     const navigation = useNavigate();
+
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
+
+    const { changeProfileInfo } = useAuthContext();
 
     const initialValidData = { isValid: true, errorMessages: [] };
     const [isFormValid, updateIsFormValid] = useState(initialValidData);
@@ -44,6 +48,7 @@ function ApplicantProfileManager() {
                     updateIsFormValid(oldState => { return { isValid: false, errorMessages: oldState.errorMessages.concat(newErrorMessages) }; });
                 } else {
                     navigation('/applicant-profile/' + profile_id);
+                    changeProfileInfo(profile_id);
                 };
 
             });

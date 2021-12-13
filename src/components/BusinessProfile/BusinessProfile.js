@@ -4,6 +4,7 @@ import Jobs from '../Jobs';
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
+
 import useFetch from '../../hooks/useFetch';
 
 import * as jobServices from '../../services/jobServices';
@@ -13,7 +14,6 @@ function BusinessProfile() {
 
     const { profile_id } = useParams();
     const { state: profileData } = useFetch('/auth/profile-details/' + profile_id, {});
-
 
     const [url, setUrl] = useState('/jobs/?owner_id=' + profile_id, {});
     const { state: jobsInfo } = useFetch(url, {});

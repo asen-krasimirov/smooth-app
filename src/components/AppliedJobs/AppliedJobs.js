@@ -7,6 +7,7 @@ import { useAuthContext } from '../../contexts/AuthContext';
 import AppliedJobCard from './AppliedJobCard/AppliedJobCard';
 
 import isApplicantProfile from '../../hoc/isApplicantProfile';
+import isProfileComplete from '../../hoc/isProfileComplete';
 
 function AppliedJobs() {
     const { userInfo } = useAuthContext();
@@ -39,4 +40,4 @@ function AppliedJobs() {
     );
 }
 
-export default isApplicantProfile(AppliedJobs);
+export default isApplicantProfile(isProfileComplete(AppliedJobs));

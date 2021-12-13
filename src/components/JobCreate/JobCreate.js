@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import * as jobServices from '../../services/jobServices';
 
 import isBusinessProfile from '../../hoc/isBusinessProfile';
+import isProfileComplete from '../../hoc/isProfileComplete';
 
 function JobCreate() {
     const navigation = useNavigate();
@@ -124,4 +125,4 @@ function JobCreate() {
     );
 }
 
-export default isBusinessProfile(JobCreate);
+export default isBusinessProfile(isProfileComplete(JobCreate));

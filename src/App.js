@@ -25,6 +25,8 @@ import BusinessProfileManager from './components/BusinessProfileManager';
 
 import AppliedJobs from './components/AppliedJobs';
 
+import ProfileNotComplete from './components/ProfileNotComplete';
+
 function App() {
 
 	return (
@@ -32,29 +34,32 @@ function App() {
 			<Header />
 			<ScrollReseter>
 
-				<main className="content-container">
-					<Routes>
-						<Route path="/" element={<Landing />} />
+					<main className="content-container">
+						<Routes>
+							<Route path="/" element={<Landing />} />
 
-						<Route path="/jobs" element={<JobsBrowser />} />
-						<Route path="/jobs/:id" element={<JobDetails />} />
-						<Route path="/create-job-post" element={<JobCreate />} />
-						<Route path="/update-job-post/:id" element={<JobUpdate />} />
+							<Route path="/jobs" element={<JobsBrowser />} />
+							<Route path="/jobs/:id" element={<JobDetails />} />
 
-						<Route path="/sign-up" element={<SignUp />} />
-						<Route path="/sign-in" element={<SignIn />} />
-						<Route path="/logout" element={<Logout />} />
+							<Route path="/applied-jobs" element={<AppliedJobs />} />
 
-						<Route path="applicant-profile/:profile_id" element={<ApplicantProfile />} />
-						<Route path="business-profile/:profile_id" element={<BusinessProfile />} />
+							<Route path="/create-job-post" element={<JobCreate />} />
+							<Route path="/update-job-post/:id" element={<JobUpdate />} />
 
-						<Route path="/applicant-profile-manage/:profile_id" element={<ApplicantProfileManager />} />
-						<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
+							<Route path="/applicant-profile/:profile_id" element={<ApplicantProfile />} />
+							<Route path="/business-profile/:profile_id" element={<BusinessProfile />} />
 
-						<Route path="/applied-jobs" element={<AppliedJobs />} />
+							<Route path="/applicant-profile-manage/:profile_id" element={<ApplicantProfileManager />} />
+							<Route path="/business-profile-manage/:profile_id" element={<BusinessProfileManager />} />
 
-					</Routes>
-				</main>
+							<Route path="/sign-up" element={<SignUp />} />
+							<Route path="/sign-in" element={<SignIn />} />
+							<Route path="/logout" element={<Logout />} />
+
+							<Route path="/profile-not-complete" element={<ProfileNotComplete />} />
+						</Routes>
+					</main>
+
 			</ScrollReseter>
 
 			<button id="buttonToTop" className="btn">

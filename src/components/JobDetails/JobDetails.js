@@ -10,6 +10,7 @@ import * as jobServices from '../../services/jobServices';
 
 import ModalDialog from '../Common/ModalDialog/ModalDialog';
 import Applicants from '../Applicants';
+import JobApply from './JobApply';
 
 function JobDetails() {
     const { id } = useParams();
@@ -20,7 +21,7 @@ function JobDetails() {
 
     const { state: jobAppliedInfo } = useFetch('/jobs/applied/' + id + '/?user_id=' + userInfo.id, {});
     const { state: applicantsData } = useFetch('/jobs/' + id + '/applicants', []);
-    
+
     const { applicants } = applicantsData;
     const { job, profile } = jobInfo;
 
@@ -32,7 +33,7 @@ function JobDetails() {
 
     const [showApplyModal, setShowApplyModal] = useState(false);
     const [showUnapplyModal, setShowUnapplyModal] = useState(false);
-    
+
     const onJobDelete = () => {
         jobServices.deleteJob(id)
             .then(data => {
@@ -41,39 +42,17 @@ function JobDetails() {
                 }
                 setShowDelModal(false);
                 navigation('/business-profile/' + userInfo.id);
-            });        
-    };
-
-    const onJobApply = () => {
-        jobServices.applyToJob(id)
-            .then(data => {
-                if (data.hasOwnProperty('message')) {
-                    console.log(data.message);
-                }
-            setShowApplyModal(false);
-            navigation('/applied-jobs');
-            });
-    };
-
-    const onJobUnapply = () => {
-        jobServices.unApplyToJob(id)
-            .then(data => {
-                if (data.hasOwnProperty('message')) {
-                    console.log(data.message);
-                }
-            setShowUnapplyModal(false);
-            navigation('/applied-jobs');
             });
     };
 
     const managementBtns = (
         <div className='management-btns'>
-            <Link to={ '/update-job-post/' + id } className="btn">Edit Job Details</Link>
+            <Link to={'/update-job-post/' + id} className="btn">Edit Job Details</Link>
             {/* <Link to={ '/delete-job-post/' + id } className="btn">Delete Job</Link> */}
             <button className="btn" onClick={() => setShowDelModal(true)}>Delete Job</button>
         </div>
     );
-    
+
     const userBtns = hasApplied
         ? <button className="btn" onClick={() => setShowUnapplyModal(true)}>Unapply</button>
         : <button className="btn" onClick={() => setShowApplyModal(true)}>Apply</button>;
@@ -82,7 +61,7 @@ function JobDetails() {
         <>
             {
                 (job && profile)
-                    ? <div className={ (showDelModal || showApplyModal || showUnapplyModal) ? 'job-details blurred' : 'job-details' }>
+                    ? <div className={(showDelModal || showApplyModal || showUnapplyModal) ? 'job-details blurred' : 'job-details'}>
                         <section className="generic-section job-details">
                             <article className="job-card">
                                 <div className="job-heading">
@@ -113,10 +92,10 @@ function JobDetails() {
                                         <span className="head">Applicants:</span> 3
                                     </p> */}
                                     <p className="job-type">
-                                        <span className="head">Job Type:</span> { job.type === 'FT' ? 'Full Time' : 'Part Time' }
+                                        <span className="head">Job Type:</span> {job.type === 'FT' ? 'Full Time' : 'Part Time'}
                                     </p>
                                     <p className="job-status">
-                                        <span className="head">Hiring Status:</span> { job.type === 'AH' ? 'Active Hiring (urgent)' : 'Passive Hiring (not urgent)' }
+                                        <span className="head">Hiring Status:</span> {job.type === 'AH' ? 'Active Hiring (urgent)' : 'Passive Hiring (not urgent)'}
                                     </p>
                                 </div>
 
@@ -150,18 +129,14 @@ function JobDetails() {
                     : null
             }
 
-            {
-                
-                showApplyModal 
-                    ? <ModalDialog message={'Are you sure you want to apply for this job?'} onExecute={onJobApply} onCancel={() => setShowApplyModal(false)} />
-                    : null
-            }
+            {<JobApply
+                id={id}
+                showApplyModal={showApplyModal}
+                showUnapplyModal={showUnapplyModal}
 
-            {
-                showUnapplyModal
-                    ? <ModalDialog message={'Are you sure you want to to withdraw your application for this job?'} onExecute={onJobUnapply} onCancel={() => setShowUnapplyModal(false)} />
-                    : null
-            }
+                setShowApplyModal={setShowApplyModal}
+                setShowUnapplyModal={setShowUnapplyModal}
+            />}
 
         </>
     );

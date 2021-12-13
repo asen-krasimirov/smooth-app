@@ -39,11 +39,16 @@ body {
 .logout,
 .applied-jobs,
 .job-apply,
-.job-unapply {
+.job-unapply,
+.profile-not-complete {
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+}
+
+.jobs {
+    margin: 10px auto;
 }
 
 .blurred {
