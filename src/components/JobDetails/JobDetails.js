@@ -57,6 +57,9 @@ function JobDetails() {
         ? <button className="btn" onClick={() => setShowUnapplyModal(true)}>Unapply</button>
         : <button className="btn" onClick={() => setShowApplyModal(true)}>Apply</button>;
 
+    
+    console.log(job);
+
     return (
         <>
             {
@@ -95,7 +98,7 @@ function JobDetails() {
                                         <span className="head">Job Type:</span> {job.type === 'FT' ? 'Full Time' : 'Part Time'}
                                     </p>
                                     <p className="job-status">
-                                        <span className="head">Hiring Status:</span> {job.type === 'AH' ? 'Active Hiring (urgent)' : 'Passive Hiring (not urgent)'}
+                                        <span className="head">Hiring Status:</span> {job.status === 'AH' ? 'Active Hiring (urgent)' : 'Passive Hiring (not urgent)'}
                                     </p>
                                 </div>
 
