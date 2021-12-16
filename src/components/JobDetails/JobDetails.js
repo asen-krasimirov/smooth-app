@@ -57,9 +57,6 @@ function JobDetails() {
         ? <button className="btn" onClick={() => setShowUnapplyModal(true)}>Unapply</button>
         : <button className="btn" onClick={() => setShowApplyModal(true)}>Apply</button>;
 
-    
-    console.log(job);
-
     return (
         <>
             {
