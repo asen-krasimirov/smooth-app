@@ -53,3 +53,6 @@ There are three types of accounts:
 Users with business accounts create jobs posts (as well as edit and delete them) and view who has applied to them.
 * Applicant Accounts- These users have all the privileges of the guest users plus having the ability to apply to job posts.<br>
 They can browser all available jobs, pick the best for them and apply. They can also see a list of all the jobs they have applied to.
+
+### Cloud Storage
+This application uses Cloudinary to store images.
